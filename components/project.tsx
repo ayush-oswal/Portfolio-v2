@@ -1,35 +1,34 @@
-import { video } from "framer-motion/client";
 import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
-import { Github, Globe } from "lucide-react";
+import { Github, Globe, VideoIcon } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+import { LinkPreview } from "./ui/link-preview";
 
 interface ProjectProps {
   title: string;
   description: string;
   image: string;
   skills: string[];
-  gihtub: string;
+  github: string;
   live?: string;
   video?: string;
 }
 
 const Project = ({
+  title,
   description,
-  gihtub,
   image,
   skills,
-  title,
+  github,
   live,
   video,
 }: ProjectProps) => {
   return (
     <Card className="shadow-md">
       <CardHeader className="p-0">
-        <div>
+        <div className="p-2">
           <Image
             src={image}
-            alt="Save To Drive"
+            alt={title}
             height={500}
             width={500}
             className="rounded-t-lg h-[170px] object-cover"
@@ -53,23 +52,27 @@ const Project = ({
         </div>
         <div className="flex items-center gap-2 mt-4">
           {live && (
-            <Link
-              href={live}
-              target="_blank"
-              className="flex items-center gap-2 bg-gray-950 hover:bg-gray-700 rounded-lg px-2 py-1 cursor-pointer"
-            >
-              <Globe className="h-4 w-4 text-white" />
-              <p className="text-[10px] text-white">Website</p>
-            </Link>
+            <LinkPreview url={live}>
+              <div className="flex items-center gap-2 bg-gray-950 hover:bg-gray-700 rounded-lg px-2 py-1 cursor-pointer">
+                <Globe className="h-4 w-4 text-white" />
+                <p className="text-[10px] text-white">Website</p>
+              </div>
+            </LinkPreview>
           )}
-          <Link
-            href={gihtub}
-            target="_blank"
-            className="flex items-center gap-2 bg-gray-950 hover:bg-gray-700 rounded-lg px-2 py-1 cursor-pointer"
-          >
-            <Github className="h-4 w-4 text-white" />
-            <p className="text-[10px] text-white">Source</p>
-          </Link>
+          <LinkPreview url={github}>
+            <div className="flex items-center gap-2 bg-gray-950 hover:bg-gray-700 rounded-lg px-2 py-1 cursor-pointer">
+              <Github className="h-4 w-4 text-white" />
+              <p className="text-[10px] text-white">Source</p>
+            </div>
+          </LinkPreview>
+          {video && (
+            <LinkPreview url={video}>
+              <div className="flex items-center gap-2 bg-gray-950 hover:bg-gray-700 rounded-lg px-2 py-1 cursor-pointer">
+                <VideoIcon className="h-4 w-4 text-white" />
+                <p className="text-[10px] text-white">Video</p>
+              </div>
+            </LinkPreview>
+          )}
         </div>
       </CardContent>
     </Card>

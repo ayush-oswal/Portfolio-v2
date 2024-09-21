@@ -50,7 +50,7 @@ const HeroSection = () => {
           नमस्ते🙏, I am Ayush Oswal
         </h1>
         <Image
-          src="/me.jpeg"
+          src="/me.jpg"
           alt="Ayush Oswal"
           width={200}
           height={200}
