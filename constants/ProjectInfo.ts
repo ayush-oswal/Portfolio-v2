@@ -1,4 +1,4 @@
-export interface Project {
+export interface ProjectSchema {
     Title: string;
     Cover: string;
     Description: string;
@@ -8,7 +8,7 @@ export interface Project {
     Video?: string;
   }
   
-  const ProjectInfo: Project[] = [
+  export const Fullstack: ProjectSchema[] = [
     {
       Title: "CodeCollab",
       Cover: "/p1.png",
@@ -23,7 +23,7 @@ export interface Project {
         "WebSockets",
         "Redis",
         "Judge0",
-        "MongoDB",
+        "Clerk Auth",
         "Tailwind",
       ],
       Live: "https://collaborative-code-editor-peach.vercel.app",
@@ -45,7 +45,7 @@ export interface Project {
       Cover: "/p3.png",
       Description:
         "A blogging platform with file uploads via Cloudinary, search, voice search, and JWT authentication. Users can comment, and authors have dedicated pages.",
-      Stack: ["React", "Express", "Node", "MongoDB", "Cloudinary", "jwt"],
+      Stack: ["React", "Express", "Node", "MongoDB", "Cloudinary", "Jwt"],
       Live: "https://blog-it-wine.vercel.app",
       Github: "https://github.com/ayush-oswal/Blog-It",
       Video: "https://x.com/Oswal_ayushh/status/1746176305476039154",
@@ -70,6 +70,17 @@ export interface Project {
       Video: "https://x.com/Oswal_ayushh/status/1819333374760100114",
     },
     {
+      Title: "Go-crud",
+      Cover: "/p5.png",
+      Description:
+        "A simple to-do list application built using Golang and React with MongoDB for storage, Docker for containerization, and CRUD functionality.",
+      Stack: ["Golang", "React", "MongoDB", "Docker"],
+      Github: "https://github.com/ayush-oswal/go-crud",
+    },
+  ];
+  
+  export const Backend : ProjectSchema[] = [
+    {
       Title: "Paytm-clone",
       Cover: "/p4.png",
       Description:
@@ -86,22 +97,39 @@ export interface Project {
       Github: "https://github.com/ayush-oswal/Elastic-Search",
     },
     {
+      Title: "E-commerce Backend",
+      Cover: "",
+      Description : "Developed 16 api's for various tasks, used prisma ORM and postgreSQL as it needed to handle multiple relations.",
+      Stack: ["Nodejs","Expressjs","Docker","Postgre","Prisma","Typescript"],
+      Github : "https://github.com/ayush-oswal/Guestara_assign"
+    },
+    {
       Title: "gRPC in golang",
       Cover: "/p6.png",
       Description:
         "A demonstration of gRPC in Golang with a separate client to implement remote procedure calls, showcasing the power of gRPC services.",
       Stack: ["Golang", "Proto"],
       Github: "https://github.com/ayush-oswal/go-grpc",
+    }
+  ];
+
+
+  export const Frontend : ProjectSchema[] = [
+    {
+      Title: "Movie Watchlist",
+      Cover: "/p9.png",
+      Description:
+        "Users can browse through movies and add them to their custom multiple watchlists which are stored locally. Used Zustand and also applied pagination.",
+      Stack: ["Reactjs","Zustand","Typescript","Pagination"],
+      Github: "https://github.com/ayush-oswal/Authenticate_assign",
+      Live: "https://authenticate-assign.vercel.app/"
     },
     {
-      Title: "Go-crud",
-      Cover: "/p5.png",
+      Title: "ChatGPT-clone",
+      Cover: "/p10.png",
       Description:
-        "A simple to-do list application built using Golang and React with MongoDB for storage, Docker for containerization, and CRUD functionality.",
-      Stack: ["Golang", "React", "MongoDB", "Docker"],
-      Github: "https://github.com/ayush-oswal/go-crud",
-    },
+        "Made a fully responsive chatgpt clone a while back using just tailwind css.",
+      Stack: ["Tailwind CSS"],
+      Github: "https://github.com/ayush-oswal/Chatgpt-clone-using-tailwind-css"
+    }
   ];
-  
-  export default ProjectInfo;
-  

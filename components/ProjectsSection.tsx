@@ -1,31 +1,57 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 import Project from "./project";
-import ProjectInfo from "@/constants/ProjectInfo"; // Assuming the ProjectInfo is exported from projectInfo.ts
+import { Fullstack, Frontend, Backend, ProjectSchema } from "@/constants/ProjectInfo"; // Assuming the ProjectInfo is exported from projectInfo.ts
 
 const ProjectsSection = () => {
   const [showAll, setShowAll] = useState(false);
+  const [selectedTab, setSelectedTab] = useState<"Fullstack" | "Frontend" | "Backend">("Fullstack"); // Default tab is Fullstack
 
   const handleViewMore = () => {
-    setShowAll(!showAll); // Toggle the state to show/hide more projects
+    setShowAll(!showAll);
   };
 
-  // Only display the first 4 projects if showAll is false, else display all
-  const projectsToShow = showAll ? ProjectInfo : ProjectInfo.slice(0, 4);
+  const projectsByCategory: { [key: string]: ProjectSchema[] } = {
+    Fullstack,
+    Frontend,
+    Backend,
+  };
+
+  const currentProjects = projectsByCategory[selectedTab];
+  const projectsToShow = showAll ? currentProjects : currentProjects.slice(0, 4);
 
   return (
     <div className="mt-10">
       <div className="flex flex-col items-center justify-center gap-4">
         <div className="flex flex-col gap-2 items-center">
-          <p className="text-3xl font-bold tracking-tighter sm:text-5xl">
-            Projects
-          </p>
+          <p className="text-3xl font-bold tracking-tighter sm:text-5xl">Projects</p>
           <p className="md:text-[16px] max-w-[700px] text-[14px] text-gray-500 dark:text-gray-400 text-center">
-            I&apos;ve worked on a variety of projects, from simple websites to
-            complex web applications. Here are a few of my favorites.
+            Here are a few of my projects showcasing my skills accross a variety of functionalities and tech-stacks.
           </p>
         </div>
+
+        {/* Tabs for Fullstack, Frontend, and Backend */}
+        <div className="flex justify-center gap-6 mt-4">
+          {["Fullstack", "Frontend", "Backend"].map((tab) => (
+            <button
+              key={tab}
+              onClick={() => {
+                setSelectedTab(tab as "Fullstack" | "Frontend" | "Backend");
+                setShowAll(false); // Reset view more when switching tabs
+              }}
+              className={`text-lg font-semibold py-2 px-6 rounded-md transition-colors duration-300 ${
+                selectedTab === tab
+                  ? "bg-blue-700 text-white"
+                  : "text-gray-600 hover:bg-blue-600 hover:text-white dark:text-gray-400"
+              }`}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
+
+        {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
           {projectsToShow.map((project, index) => (
             <Project
@@ -40,14 +66,18 @@ const ProjectsSection = () => {
             />
           ))}
         </div>
-      </div>
-      <div className="text-center mt-6">
-        <button
-          onClick={handleViewMore}
-          className="text-sm text-gray-600 hover:text-gray-800 dark:hover:text-gray-200"
-        >
-          {showAll ? "View Less" : "View More"}
-        </button>
+
+        {/* View More Button */}
+        {currentProjects.length > 4 && (
+          <div className="text-center mt-6">
+            <button
+              onClick={handleViewMore}
+              className="text-sm text-gray-600 hover:text-gray-800 dark:hover:text-gray-200"
+            >
+              {showAll ? "View Less" : "View More"}
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
