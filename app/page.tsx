@@ -10,11 +10,21 @@ export default function Home() {
     <main className="max-w-3xl mx-auto px-[20px] md:px-0 mb-[150px]">
       <div className="flex flex-col gap-10 mt-16">
         <BottomBar />
-        <HeroSection />
-        <AboutSection />
-        <SkillsSection />
-        <ProjectsSection />
-        <ExtrasSection />
+        <header>
+          <HeroSection />
+        </header>
+        <section>
+          <AboutSection />
+        </section>
+        <section>
+          <SkillsSection />
+        </section>
+        <section>
+          <ProjectsSection />
+        </section>
+        <section>
+          <ExtrasSection />
+        </section>
       </div>
     </main>
   );
