@@ -18,12 +18,15 @@ const SkillsSection = () => {
         <HoverBorderGradient>PostgreSQL</HoverBorderGradient>
         <HoverBorderGradient>Prisma</HoverBorderGradient>
         <HoverBorderGradient>Docker</HoverBorderGradient>
+        <HoverBorderGradient>Data Structures</HoverBorderGradient>
+        <HoverBorderGradient>Algorithms</HoverBorderGradient>
         <HoverBorderGradient>WebSockets</HoverBorderGradient>
         <HoverBorderGradient>WebRtc</HoverBorderGradient>
         <HoverBorderGradient>Git</HoverBorderGradient>
         <HoverBorderGradient>GitHub</HoverBorderGradient>
         <HoverBorderGradient>C++</HoverBorderGradient>
         <HoverBorderGradient>Python</HoverBorderGradient>
+        <HoverBorderGradient>Fast API</HoverBorderGradient>
         <HoverBorderGradient>Golang</HoverBorderGradient>
         <HoverBorderGradient>HTML</HoverBorderGradient>
         <HoverBorderGradient>CSS</HoverBorderGradient>
@@ -37,7 +40,10 @@ const SkillsSection = () => {
         <HoverBorderGradient>Kafka</HoverBorderGradient>
         <HoverBorderGradient>ElasticSearch</HoverBorderGradient>
         <HoverBorderGradient>Kubernetes</HoverBorderGradient>
+        <HoverBorderGradient>Nginx</HoverBorderGradient>
         <HoverBorderGradient>AWS</HoverBorderGradient>
+        <HoverBorderGradient>CI/CD</HoverBorderGradient>
+        <HoverBorderGradient>EC2 deployments</HoverBorderGradient>
         <HoverBorderGradient>Vitest</HoverBorderGradient>
       </div>
     </div>
