@@ -32,25 +32,46 @@ const ProjectsSection = () => {
         </div>
 
         {/* Tabs for Fullstack, Frontend, and Backend */}
-        <div className="flex justify-center gap-6 mt-4">
-          {["Fullstack", "Frontend", "Backend"].map((tab) => (
-            <button
-              key={tab}
-              onClick={() => {
-                setSelectedTab(tab as "Fullstack" | "Frontend" | "Backend");
+        {/* Responsive tabs/select for project categories */}
+        <div className="w-full">
+          {/* Tabs for larger screens */}
+          <div className="hidden sm:flex justify-center gap-6 mt-4">
+            {["Fullstack", "Frontend", "Backend"].map((tab) => (
+              <button
+                key={tab}
+                onClick={() => {
+                  setSelectedTab(tab as "Fullstack" | "Frontend" | "Backend");
+                  setShowAll(false); // Reset view more when switching tabs
+                }}
+                className={`text-lg font-semibold py-2 px-6 rounded-md transition-colors duration-300 ${
+                  selectedTab === tab
+                    ? "bg-blue-700 text-white"
+                    : "text-gray-600 hover:bg-blue-600 hover:text-white dark:text-gray-400"
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+
+          {/* Select for smaller screens */}
+          <div className="sm:hidden w-full mt-4">
+            <select
+              value={selectedTab}
+              onChange={(e) => {
+                setSelectedTab(e.target.value as "Fullstack" | "Frontend" | "Backend");
                 setShowAll(false); // Reset view more when switching tabs
               }}
-              className={`text-lg font-semibold py-2 px-6 rounded-md transition-colors duration-300 ${
-                selectedTab === tab
-                  ? "bg-blue-700 text-white"
-                  : "text-gray-600 hover:bg-blue-600 hover:text-white dark:text-gray-400"
-              }`}
+              className="w-full p-2 text-lg font-semibold rounded-md bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300"
             >
-              {tab}
-            </button>
-          ))}
+              {["Fullstack", "Frontend", "Backend"].map((tab) => (
+                <option key={tab} value={tab}>
+                  {tab}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
-
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
           {projectsToShow.map((project, index) => (
