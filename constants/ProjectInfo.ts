@@ -15,8 +15,10 @@ export interface ProjectSchema {
       Description:
         "A real-time collaborative code editor with room-based coding, chat, and code execution. It uses Redis for task queues and Judge0 for code evaluation.",
       Stack: [
+        "AWS ec2",
         "Typescript",
         "Docker",
+        "Nginx",
         "Express",
         "Node",
         "React",
@@ -26,7 +28,7 @@ export interface ProjectSchema {
         "Clerk Auth",
         "Tailwind",
       ],
-      Live: "https://collaborative-code-editor-peach.vercel.app",
+      Live: "https://codecollab.ayushoswal.live/",
       Github: "https://github.com/ayush-oswal/Collaborative-code-editor",
       Video: "https://x.com/Oswal_ayushh/status/1799106143937315018",
     },

@@ -23,7 +23,7 @@ const ProjectsSection = () => {
 
   return (
     <div className="mt-10">
-      <div className="flex flex-col items-center justify-center gap-4">
+      <div className="flex flex-col items-center justify-center gap-10">
         <div className="flex flex-col gap-2 items-center">
           <p className="text-3xl font-bold tracking-tighter sm:text-5xl">Projects</p>
           <p className="md:text-[16px] max-w-[700px] text-[14px] text-gray-500 dark:text-gray-400 text-center">
@@ -31,11 +31,8 @@ const ProjectsSection = () => {
           </p>
         </div>
 
-        {/* Tabs for Fullstack, Frontend, and Backend */}
-        {/* Responsive tabs/select for project categories */}
-        <div className="w-full">
-          {/* Tabs for larger screens */}
-          <div className="hidden sm:flex justify-center gap-6 mt-4">
+        <div className="w-full"> 
+          <div className="hidden sm:flex justify-center gap-6 mt-6 mb-6">
             {["Fullstack", "Frontend", "Backend"].map((tab) => (
               <button
                 key={tab}
@@ -73,7 +70,7 @@ const ProjectsSection = () => {
           </div>
         </div>
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {projectsToShow.map((project, index) => (
             <Project
               key={index}
