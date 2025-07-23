@@ -35,7 +35,7 @@ const ExperienceSection = () => {
           <ul className="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-100">
             <li>Assisted with the integration of <strong className="underline underline-offset-2">OpenEMR and ECW</strong> systems into our platform for smooth data sharing.</li>
             <li>Developed custom logic for <strong className="underline underline-offset-2">Welkin EMR</strong>, allowing automatic creation of <strong className="underline underline-offset-2">100ms links</strong> for patient sessions.</li>
-            <li>Contributed to building <strong className="underline underline-offset-2">Voice Agents</strong> with LiveKit, Deepgram, and OpenAI's realtime model for automating reminders and verifying users.</li>
+            <li>Contributed to building <strong className="underline underline-offset-2">Voice Agents</strong> with LiveKit, Deepgram, and OpenAI&apos;s realtime model for automating reminders and verifying users.</li>
             <li>Helped design and deploy <strong className="underline underline-offset-2">RBAC middleware</strong> to protect patient information, maintaining <strong className="underline underline-offset-2">HIPAA</strong> standards and blocking unauthorized entry in EMR setups.</li>
             <li>Set up a <strong className="underline underline-offset-2">token caching system for Lambda using DynamoDB</strong> to optimize expenses.</li>
             <li>Worked together on integrating <strong className="underline underline-offset-2">Zoho Desk and CRM</strong> with our system.</li>
