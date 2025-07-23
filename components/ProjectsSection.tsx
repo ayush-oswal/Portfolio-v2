@@ -6,13 +6,16 @@ import { Fullstack, Frontend, Backend, ProjectSchema } from "@/constants/Project
 
 const ProjectsSection = () => {
   const [showAll, setShowAll] = useState(false);
-  const [selectedTab, setSelectedTab] = useState<"Fullstack" | "Frontend" | "Backend">("Fullstack"); // Default tab is Fullstack
+  const [selectedTab, setSelectedTab] = useState<"All" | "Fullstack" | "Frontend" | "Backend">("All");
 
   const handleViewMore = () => {
     setShowAll(!showAll);
   };
 
+  const allProjects = [...Fullstack, ...Frontend, ...Backend];
+
   const projectsByCategory: { [key: string]: ProjectSchema[] } = {
+    All: allProjects,
     Fullstack,
     Frontend,
     Backend,
@@ -33,11 +36,11 @@ const ProjectsSection = () => {
 
         <div className="w-full"> 
           <div className="hidden sm:flex justify-center gap-6 mt-6 mb-6">
-            {["Fullstack", "Frontend", "Backend"].map((tab) => (
+            {["All", "Fullstack", "Frontend", "Backend"].map((tab) => (
               <button
                 key={tab}
                 onClick={() => {
-                  setSelectedTab(tab as "Fullstack" | "Frontend" | "Backend");
+                  setSelectedTab(tab as "All" | "Fullstack" | "Frontend" | "Backend");
                   setShowAll(false); // Reset view more when switching tabs
                 }}
                 className={`text-lg font-semibold py-2 px-6 rounded-md transition-colors duration-300 ${
@@ -56,12 +59,12 @@ const ProjectsSection = () => {
             <select
               value={selectedTab}
               onChange={(e) => {
-                setSelectedTab(e.target.value as "Fullstack" | "Frontend" | "Backend");
+                setSelectedTab(e.target.value as "All" | "Fullstack" | "Frontend" | "Backend");
                 setShowAll(false); // Reset view more when switching tabs
               }}
               className="w-full p-2 text-lg font-semibold rounded-md bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300"
             >
-              {["Fullstack", "Frontend", "Backend"].map((tab) => (
+              {["All", "Fullstack", "Frontend", "Backend"].map((tab) => (
                 <option key={tab} value={tab}>
                   {tab}
                 </option>

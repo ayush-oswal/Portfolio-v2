@@ -43,14 +43,12 @@ export interface ProjectSchema {
       Video: "https://x.com/Oswal_ayushh/status/1775555228412113159",
     },
     {
-      Title: "Blog-It",
-      Cover: "/p3.png",
-      Description:
-        "A blogging platform with file uploads via Cloudinary, search, voice search, and JWT authentication. Users can comment, and authors have dedicated pages.",
-      Stack: ["React", "Express", "Node", "MongoDB", "Cloudinary", "Jwt"],
-      Live: "https://blog-it-wine.vercel.app",
-      Github: "https://github.com/ayush-oswal/Blog-It",
-      Video: "https://x.com/Oswal_ayushh/status/1746176305476039154",
+      Title: "Twitter Automation MCP",
+      Cover: "/p11.png",
+      Description: "Developed an open-source MCP server on NPM for easy Twitter automation in AI agents like Claude, with Gemini 2.0 Flash image generation, URL media, and thread support. Boosted twitter engagement of users by 150% open-sourced on GitHub, gaining developer traction for AI-Twitter integration. Integrated Twitter API v2 for media uploads, length validation (under 280 chars), and friendly error handling for credentials/API issues. Supports functions such as post tweet, generate image and use image from url, with thread support.",
+      Stack: ["NPM", "MCP", "Twitter API", "Gemini", "TypeScript", "Node.js", "Docker"],
+      Github: "https://github.com/ayush-oswal/twitter-automation",
+      Live: "https://www.npmjs.com/package/twitter-automation-mcp"
     },
     {
       Title: "Trello-Clone",
@@ -70,6 +68,16 @@ export interface ProjectSchema {
       Live: "https://crework-assign.vercel.app/",
       Github: "https://github.com/ayush-oswal/Crework_assign",
       Video: "https://x.com/Oswal_ayushh/status/1819333374760100114",
+    },
+    {
+      Title: "Blog-It",
+      Cover: "/p3.png",
+      Description:
+        "A blogging platform with file uploads via Cloudinary, search, voice search, and JWT authentication. Users can comment, and authors have dedicated pages.",
+      Stack: ["React", "Express", "Node", "MongoDB", "Cloudinary", "Jwt"],
+      Live: "https://blog-it-wine.vercel.app",
+      Github: "https://github.com/ayush-oswal/Blog-It",
+      Video: "https://x.com/Oswal_ayushh/status/1746176305476039154",
     },
     {
       Title: "Go-crud",

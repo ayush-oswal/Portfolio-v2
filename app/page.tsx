@@ -4,11 +4,12 @@ import ExtrasSection from "@/components/ExtrasSection";
 import HeroSection from "@/components/HeroSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import SkillsSection from "@/components/SkillsSection";
+import ExperienceSection from "@/components/ExperienceSection";
 
 export default function Home() {
   return (
     <main className="max-w-3xl mx-auto px-[20px] md:px-0 mb-[150px]">
-      <div className="flex flex-col gap-10 mt-16">
+      <div className="flex flex-col gap-20 mt-16">
         <BottomBar />
         <header>
           <HeroSection />
@@ -18,6 +19,9 @@ export default function Home() {
         </section>
         <section>
           <SkillsSection />
+        </section>
+        <section>
+          <ExperienceSection />
         </section>
         <section>
           <ProjectsSection />

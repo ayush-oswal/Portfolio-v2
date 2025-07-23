@@ -45,6 +45,13 @@ const SkillsSection = () => {
         <HoverBorderGradient>CI/CD</HoverBorderGradient>
         <HoverBorderGradient>EC2 deployments</HoverBorderGradient>
         <HoverBorderGradient>Vitest</HoverBorderGradient>
+        <HoverBorderGradient>Retrieval Augmented Generation (RAG)</HoverBorderGradient>
+        <HoverBorderGradient>MCP</HoverBorderGradient>
+        <HoverBorderGradient>gRPC</HoverBorderGradient>
+        <HoverBorderGradient>DynamoDB</HoverBorderGradient>
+        <HoverBorderGradient>Devops</HoverBorderGradient>
+        <HoverBorderGradient>Debugging</HoverBorderGradient>
+        <HoverBorderGradient>Monitoring and logging</HoverBorderGradient>
       </div>
     </div>
   );

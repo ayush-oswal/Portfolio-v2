@@ -27,7 +27,7 @@ const HeroSection = () => {
               </div>
               <div className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-md text-left">
                 <Cover>
-                   Full Stack Developer & AI enthusiast.
+                   Backend Developer & AI enthusiast.
                 </Cover>
               </div>
             </div>
