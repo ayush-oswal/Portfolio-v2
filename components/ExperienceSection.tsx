@@ -70,7 +70,7 @@ const ExperienceSection = () => {
               </div>
             </div>
             <div>
-              <h3 className="text-2xl font-semibold mb-2">YourBot</h3>
+              <h3 className="text-2xl font-semibold mb-2">Founder - YourBot</h3>
               <p className="text-lg mb-4">System Design, AWS Lambda, S3, SQS, ECR, SAM, FastAPI, Pinecone, PostgreSQL</p>
             </div>
           </div>
