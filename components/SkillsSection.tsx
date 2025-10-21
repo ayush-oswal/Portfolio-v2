@@ -38,10 +38,12 @@ const SkillsSection = () => {
         <HoverBorderGradient>System Design</HoverBorderGradient>
         <HoverBorderGradient>Redis</HoverBorderGradient>
         <HoverBorderGradient>Kafka</HoverBorderGradient>
+        <HoverBorderGradient>n8n</HoverBorderGradient>
         <HoverBorderGradient>ElasticSearch</HoverBorderGradient>
         <HoverBorderGradient>Kubernetes</HoverBorderGradient>
         <HoverBorderGradient>Nginx</HoverBorderGradient>
         <HoverBorderGradient>AWS</HoverBorderGradient>
+        <HoverBorderGradient>Voice Agents</HoverBorderGradient>
         <HoverBorderGradient>CI/CD</HoverBorderGradient>
         <HoverBorderGradient>EC2 deployments</HoverBorderGradient>
         <HoverBorderGradient>Vitest</HoverBorderGradient>

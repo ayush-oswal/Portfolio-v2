@@ -28,7 +28,7 @@ export interface ProjectSchema {
         "Clerk Auth",
         "Tailwind",
       ],
-      Live: "https://codecollab.ayushoswal.live/",
+      Live: "https://codecollab.ayushoswal.com/",
       Github: "https://github.com/ayush-oswal/Collaborative-code-editor",
       Video: "https://x.com/Oswal_ayushh/status/1799106143937315018",
     },

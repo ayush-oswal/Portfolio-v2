@@ -8,6 +8,36 @@ const ExperienceSection = () => {
       <p className="text-5xl font-bold text-center mb-28">Experience</p>
       <div className="flex flex-col gap-40">
         {/* Azodha */}
+         <div className="flex flex-col gap-6">
+          <div className="flex flex-row gap-4 items-start">
+            <div className="flex flex-col items-center">
+              <div className="bg-white rounded-lg p-2 mb-4">
+                <Image
+                  src="https://azodha.com/logo1.svg"
+                  alt="Azodha Logo"
+                  width={200}
+                  height={200}
+                  className="rounded-lg"
+                />
+              </div>
+              <LinkPreview url="https://azodha.com">
+                <div className="flex items-center gap-2 bg-gray-950 hover:bg-gray-700 rounded-lg px-3 py-2 cursor-pointer mb-4">
+                  <Globe className="h-5 w-5 text-white" />
+                  <p className="text-sm text-white">Website</p>
+                </div>
+              </LinkPreview>
+            </div>
+            <div>
+              <h3 className="text-2xl font-semibold mb-2">SDE (Backend) Sep 2025 – Present</h3>
+              <p className="text-lg mb-4">Azodha Pune, India (Hybrid)</p>
+            </div>
+          </div>
+          <ul className="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-100">
+            <li>Cautiously migrated a critical microservice from <strong className="underline underline-offset-2">PostgreSQL LISTEN/NOTIFY</strong> to a <strong className="underline underline-offset-2">queue-based</strong> architecture, ensuring <strong className="underline underline-offset-2">durability</strong> and <strong className="underline underline-offset-2">zero downtime</strong> during the cutover.</li>
+            <li>Architected resilient <strong className="underline underline-offset-2">n8n workflows</strong> to orchestrate custom client logic.</li>
+            <li>Implemented a resilient <strong className="underline underline-offset-2">retry mechanism</strong> to handle silent queue disconnections, maintaining <strong className="underline underline-offset-2">100% availability</strong> across production workloads.</li>
+          </ul>
+        </div>
         <div className="flex flex-col gap-6">
           <div className="flex flex-row gap-4 items-start">
             <div className="flex flex-col items-center">
@@ -28,7 +58,7 @@ const ExperienceSection = () => {
               </LinkPreview>
             </div>
             <div>
-              <h3 className="text-2xl font-semibold mb-2">SDE Intern (Backend) Dec 2024 – Present</h3>
+              <h3 className="text-2xl font-semibold mb-2">SDE Intern (Backend) Dec 2024 – Aug 2025</h3>
               <p className="text-lg mb-4">Azodha Pune, India (Hybrid)</p>
             </div>
           </div>
@@ -55,7 +85,7 @@ const ExperienceSection = () => {
                 <path d="M20 28C17.7909 28 16 26.2091 16 24C16 21.7909 17.7909 20 20 20C22.2091 20 24 21.7909 24 24C24 26.2091 22.2091 28 20 28Z" fill="white"/>
               </svg>
               <div className="flex gap-2">
-                <LinkPreview url="https://yourbot.ayushoswal.live">
+                <LinkPreview url="https://yourbot.ayushoswal.com">
                   <div className="flex items-center gap-2 bg-gray-950 hover:bg-gray-700 rounded-lg px-3 py-2 cursor-pointer">
                     <Globe className="h-5 w-5 text-white" />
                     <p className="text-sm text-white">Live</p>

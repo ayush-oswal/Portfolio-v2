@@ -34,7 +34,7 @@ const HeroSection = () => {
             <div className="flex items-center justify-center">
               <Image
                 src="/me.jpg"
-                alt="Ayush Oswal"
+                alt="Ayush Oswal Backend Developer in Pune"
                 width={250}
                 height={250}
                 className="rounded-full border-2 border-cyan-400"
@@ -51,13 +51,13 @@ const HeroSection = () => {
         </h1>
         <Image
           src="/me.jpg"
-          alt="Ayush Oswal"
+          alt="Ayush Oswal Backend Developer in Pune"
           width={200}
           height={200}
           className="rounded-full mb-4"
         />
-        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-md text-center">
-          Full Stack Developer passionate about building cool web applications and solving DSA problems.
+        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-xl text-center">
+           Pune-based backend developer and AI engineer crafting dependable microservices, automation workflows, and conversational voice agents.
         </p>
       </div>
     </div>
