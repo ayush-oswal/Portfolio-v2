@@ -109,7 +109,7 @@ export const metadata: Metadata = {
     siteName: "Ayush Oswal Portfolio",
     images: [
       {
-        url: "https://ayushoswal.com/og-image.jpg",
+        url: "https://ayushoswal.com/opengraph-image",
         width: 1200,
         height: 630,
         alt: "Ayush Oswal Backend Developer in Pune"
@@ -123,7 +123,7 @@ export const metadata: Metadata = {
     title: "Ayush Oswal | Backend Developer in Pune",
     description:
       "Explore the work of Ayush Oswal, Pune-based backend developer building AI-first microservices platforms.",
-    images: ["https://ayushoswal.com/og-image.jpg"]
+    images: ["https://ayushoswal.com/opengraph-image"]
   },
   category: "technology"
 };
@@ -136,30 +136,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-          name="description"
-          content="Ayush Oswal's portfolio showcasing a Pune-based backend developer and AI engineer delivering resilient microservices and automation."
-        />
-        <meta
-          name="keywords"
-          content="Ayush Oswal, Backend Developer Pune, Pune Software Engineer, AI Engineer India, Microservices, n8n automation, Voice Agents"
-        />
-        <meta name="author" content="Ayush Oswal" />
-        <meta name="robots" content="index, follow" />
-        <meta name="geo.region" content="IN-MH" />
-        <meta name="geo.placename" content="Pune" />
-        <meta property="og:title" content="Ayush Oswal | Backend Developer in Pune | AI Engineer" />
-        <meta property="og:description" content="Portfolio of Ayush Oswal, a backend developer in Pune building reliable microservices, AI agents, and automation." />
-        <meta property="og:image" content="https://ayushoswal.com/og-image.jpg" />
-        <meta property="og:url" content="https://ayushoswal.com" />
-        <meta property="og:locale" content="en_IN" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Ayush Oswal | Backend Developer in Pune" />
-        <meta name="twitter:description" content="Explore the projects and experience of Ayush Oswal, backend developer and AI engineer based in Pune, India." />
-        <meta name="twitter:image" content="https://ayushoswal.com/og-image.jpg" />
-        <link rel="canonical" href="https://ayushoswal.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

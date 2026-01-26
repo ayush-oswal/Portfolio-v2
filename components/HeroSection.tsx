@@ -37,7 +37,7 @@ const HeroSection = () => {
                 alt="Ayush Oswal Backend Developer in Pune"
                 width={250}
                 height={250}
-                className="rounded-full border-2 border-cyan-400"
+                className="aspect-square rounded-2xl border-2 border-cyan-400 object-cover"
               />
             </div>
           </div>
@@ -54,7 +54,7 @@ const HeroSection = () => {
           alt="Ayush Oswal Backend Developer in Pune"
           width={200}
           height={200}
-          className="rounded-full mb-4"
+          className="aspect-square rounded-2xl mb-4 object-cover"
         />
         <p className="text-lg text-gray-600 dark:text-gray-300 max-w-xl text-center">
            Pune-based backend developer and AI engineer crafting dependable microservices, automation workflows, and conversational voice agents.
