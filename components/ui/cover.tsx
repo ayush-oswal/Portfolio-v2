@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
 import { SparklesCore } from "@/components/ui/sparkles";
+import { ACCENT_HEX } from "@/constants/theme";
 
 export const Cover = ({
   children,
@@ -202,9 +203,9 @@ export const Beam = ({
             repeatDelay: hovered ? Math.random() * (2 - 1) + 1 : delay ?? 1,
           }}
         >
-          <stop stopColor="#2EB9DF" stopOpacity="0" />
-          <stop stopColor="#3b82f6" />
-          <stop offset="1" stopColor="#3b82f6" stopOpacity="0" />
+          <stop stopColor={ACCENT_HEX} stopOpacity="0" />
+          <stop stopColor={ACCENT_HEX} />
+          <stop offset="1" stopColor={ACCENT_HEX} stopOpacity="0" />
         </motion.linearGradient>
       </defs>
     </motion.svg>

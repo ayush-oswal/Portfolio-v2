@@ -24,6 +24,12 @@ const config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        surface: "hsl(var(--surface))",
+        elevated: "hsl(var(--elevated))",
+        brand: {
+          DEFAULT: "hsl(var(--accent-brand))",
+          dim: "hsl(var(--accent-brand-dim))",
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -52,6 +58,10 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+      },
+      boxShadow: {
+        "accent-sm": "0 0 12px rgba(200,255,0,0.20)",
+        "accent-md": "0 0 30px rgba(200,255,0,0.15), 0 0 80px rgba(200,255,0,0.06)",
       },
       borderRadius: {
         lg: "var(--radius)",

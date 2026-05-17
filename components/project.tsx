@@ -1,4 +1,4 @@
-import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
+import { Card, CardContent, CardHeader } from "./ui/card";
 import { Github, Globe, VideoIcon } from "lucide-react";
 import Image from "next/image";
 import { LinkPreview } from "./ui/link-preview";
@@ -23,7 +23,7 @@ const Project = ({
   video,
 }: ProjectProps) => {
   return (
-    <Card className="shadow-md">
+    <Card className="shadow-md hover:border-brand/30 transition-colors duration-200">
       <CardHeader className="p-0">
         <div className="p-2">
           <Image
@@ -44,30 +44,30 @@ const Project = ({
           {skills.map((skill, idx) => (
             <div
               key={idx}
-              className="flex items-center gap-2 bg-gray-100 rounded-lg px-2 py-1 cursor-pointer"
+              className="flex items-center gap-2 bg-elevated rounded-lg px-2 py-1 cursor-pointer"
             >
-              <p className="text-[10px] font-semibold text-gray-900">{skill}</p>
+              <p className="text-[10px] font-semibold text-foreground/70">{skill}</p>
             </div>
           ))}
         </div>
         <div className="flex items-center gap-2 mt-4">
           {live && (
             <LinkPreview url={live}>
-              <div className="flex items-center gap-2 bg-gray-950 hover:bg-gray-700 rounded-lg px-2 py-1 cursor-pointer">
+              <div className="flex items-center gap-2 bg-[#0A0A0A] hover:bg-elevated border border-border hover:border-brand/50 rounded-lg px-2 py-1 cursor-pointer transition-all duration-200">
                 <Globe className="h-4 w-4 text-white" />
                 <p className="text-[10px] text-white">Website</p>
               </div>
             </LinkPreview>
           )}
           <LinkPreview url={github}>
-            <div className="flex items-center gap-2 bg-gray-950 hover:bg-gray-700 rounded-lg px-2 py-1 cursor-pointer">
+            <div className="flex items-center gap-2 bg-[#0A0A0A] hover:bg-elevated border border-border hover:border-brand/50 rounded-lg px-2 py-1 cursor-pointer transition-all duration-200">
               <Github className="h-4 w-4 text-white" />
               <p className="text-[10px] text-white">Source</p>
             </div>
           </LinkPreview>
           {video && (
             <LinkPreview url={video}>
-              <div className="flex items-center gap-2 bg-gray-950 hover:bg-gray-700 rounded-lg px-2 py-1 cursor-pointer">
+              <div className="flex items-center gap-2 bg-[#0A0A0A] hover:bg-elevated border border-border hover:border-brand/50 rounded-lg px-2 py-1 cursor-pointer transition-all duration-200">
                 <VideoIcon className="h-4 w-4 text-white" />
                 <p className="text-[10px] text-white">Video</p>
               </div>

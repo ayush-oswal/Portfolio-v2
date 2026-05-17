@@ -1,11 +1,49 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { REVEAL_UP } from "@/constants/theme";
+
 const AboutSection = () => {
   return (
-    <div>
-      <p className="mt-10 md:-mt-12 pb-4 font-bold text-5xl text-center">About</p>
-      <p className="text-[15px] text-gray-500 dark:text-gray-400">
-          As a <span className="font-bold text-black dark:text-white">Backend Developer</span>, I am passionate about building scalable backend systems. I am quick to learn new technologies and explore tech stacks. Also I love solving challenging <span className="font-bold text-black dark:text-white">DSA</span> problems. Hit me up for <span className="font-bold text-black dark:text-white">badminton 🏸</span> or a quick <span className="font-bold text-black dark:text-white">chess ♟️</span> match. Currently learning about <span className="font-bold text-black dark:text-white">AI</span> and awaiting building a <span className="font-bold text-black dark:text-white">SAAS</span> product. Thank you for visiting!
+    <motion.div {...REVEAL_UP}>
+      <p className="mt-10 md:-mt-12 pb-2 font-bold text-5xl text-center">About</p>
+      <p className="text-sm text-center mb-6 italic">
+        <span className="text-brand">
+          (in which I describe myself in third-person like a LinkedIn thought leader)
+        </span>
       </p>
-    </div>
+      <div className="border-l-2 border-brand/40 pl-5">
+        <motion.p
+          className="text-[15px] text-muted-foreground leading-relaxed"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.55, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+        >
+          As a <span className="font-semibold text-brand">Backend Developer</span>, I have somehow
+          convinced multiple employers that I know what I&apos;m doing with scalable systems. I pick up
+          new tech stacks at an alarming rate — whether that&apos;s a superpower or a coping mechanism
+          is still being evaluated. I&apos;m also{" "}
+          <span className="font-semibold text-brand">completely language agnostic</span> now, thanks
+          to AI. <span className="italic text-muted-foreground">(yes, that&apos;s a flex. no, I&apos;m not explaining further.)</span>
+          <br /><br />
+          I also enjoy solving <span className="font-semibold text-brand">DSA</span> problems, which
+          is either intellectual curiosity or a character flaw depending on who you ask.
+          <br /><br />
+          Outside of staring at terminals: I will absolutely destroy you at{" "}
+          <span className="font-semibold text-brand">badminton 🏸</span>.{" "}
+          <span className="font-semibold text-brand">Chess ♟️</span> is also on the table,
+          though results there are more... variable.
+          <br /><br />
+          Currently in the &quot;learning <span className="font-semibold text-brand">AI</span>&quot; phase
+          that every developer is contractually obligated to go through, and patiently waiting to
+          build a <span className="font-semibold text-brand">SaaS</span> product that will definitely
+          disrupt the space and certainly not be abandoned after two weekends.
+          <br /><br />
+          <span className="text-brand">Thanks for scrolling this far. Truly remarkable commitment.</span>
+        </motion.p>
+      </div>
+    </motion.div>
   );
 };
 

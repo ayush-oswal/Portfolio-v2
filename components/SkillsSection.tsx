@@ -1,59 +1,46 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
+import { REVEAL_UP } from "@/constants/theme";
+
+const skills = [
+  "Javascript", "Typescript", "Java", "React", "Redux", "Next.js",
+  "Node.js", "Express.js", "MongoDB", "PostgreSQL", "Prisma", "Docker",
+  "Data Structures", "Algorithms", "WebSockets", "WebRtc", "Git", "GitHub",
+  "C++", "Python", "Fast API", "Golang", "GraphQL", "MySQL",
+  "Neo4j", "Pinecone", "LLMs", "System Design", "Redis", "Kafka", "n8n",
+  "ElasticSearch", "Kubernetes", "Nginx", "AWS", "Voice Agents", "CI/CD",
+  "EC2 deployments", "Vitest", "Retrieval Augmented Generation (RAG)", "MCP",
+  "gRPC", "DynamoDB", "Devops", "Debugging", "Monitoring and logging",
+  "FHIR", "HL7", "Healthcare Tech", "SIP Trunking", "BullMQ", "Microservices",
+];
 
 const SkillsSection = () => {
   return (
     <div className="flex flex-col gap-4">
-      <p className="pt-8 pb-4 font-bold text-5xl text-center">My Skills</p>
+      <motion.div {...REVEAL_UP} className="text-center">
+        <p className="pt-8 pb-1 font-bold text-5xl tracking-tight">
+          Things I&apos;ve Convinced Interviewers I Know
+        </p>
+        <p className="text-sm italic pb-4">
+          <span className="text-brand">
+            {skills.length} skills. Yes, I counted. No, I&apos;m not sorry.
+          </span>
+        </p>
+      </motion.div>
       <div className="flex justify-center items-center flex-wrap gap-2">
-        <HoverBorderGradient>Javascript</HoverBorderGradient>
-        <HoverBorderGradient>Typescript</HoverBorderGradient>
-        <HoverBorderGradient>Java</HoverBorderGradient>
-        <HoverBorderGradient>React</HoverBorderGradient>
-        <HoverBorderGradient>Redux</HoverBorderGradient>
-        <HoverBorderGradient>Tailwind</HoverBorderGradient>
-        <HoverBorderGradient>Next.js</HoverBorderGradient>
-        <HoverBorderGradient>Node.js</HoverBorderGradient>
-        <HoverBorderGradient>Express.js</HoverBorderGradient>
-        <HoverBorderGradient>MongoDB</HoverBorderGradient>
-        <HoverBorderGradient>PostgreSQL</HoverBorderGradient>
-        <HoverBorderGradient>Prisma</HoverBorderGradient>
-        <HoverBorderGradient>Docker</HoverBorderGradient>
-        <HoverBorderGradient>Data Structures</HoverBorderGradient>
-        <HoverBorderGradient>Algorithms</HoverBorderGradient>
-        <HoverBorderGradient>WebSockets</HoverBorderGradient>
-        <HoverBorderGradient>WebRtc</HoverBorderGradient>
-        <HoverBorderGradient>Git</HoverBorderGradient>
-        <HoverBorderGradient>GitHub</HoverBorderGradient>
-        <HoverBorderGradient>C++</HoverBorderGradient>
-        <HoverBorderGradient>Python</HoverBorderGradient>
-        <HoverBorderGradient>Fast API</HoverBorderGradient>
-        <HoverBorderGradient>Golang</HoverBorderGradient>
-        <HoverBorderGradient>HTML</HoverBorderGradient>
-        <HoverBorderGradient>CSS</HoverBorderGradient>
-        <HoverBorderGradient>GraphQL</HoverBorderGradient>
-        <HoverBorderGradient>MySQL</HoverBorderGradient>
-        <HoverBorderGradient>Neo4j</HoverBorderGradient>
-        <HoverBorderGradient>Pinecone</HoverBorderGradient>
-        <HoverBorderGradient>LLMs</HoverBorderGradient>
-        <HoverBorderGradient>System Design</HoverBorderGradient>
-        <HoverBorderGradient>Redis</HoverBorderGradient>
-        <HoverBorderGradient>Kafka</HoverBorderGradient>
-        <HoverBorderGradient>n8n</HoverBorderGradient>
-        <HoverBorderGradient>ElasticSearch</HoverBorderGradient>
-        <HoverBorderGradient>Kubernetes</HoverBorderGradient>
-        <HoverBorderGradient>Nginx</HoverBorderGradient>
-        <HoverBorderGradient>AWS</HoverBorderGradient>
-        <HoverBorderGradient>Voice Agents</HoverBorderGradient>
-        <HoverBorderGradient>CI/CD</HoverBorderGradient>
-        <HoverBorderGradient>EC2 deployments</HoverBorderGradient>
-        <HoverBorderGradient>Vitest</HoverBorderGradient>
-        <HoverBorderGradient>Retrieval Augmented Generation (RAG)</HoverBorderGradient>
-        <HoverBorderGradient>MCP</HoverBorderGradient>
-        <HoverBorderGradient>gRPC</HoverBorderGradient>
-        <HoverBorderGradient>DynamoDB</HoverBorderGradient>
-        <HoverBorderGradient>Devops</HoverBorderGradient>
-        <HoverBorderGradient>Debugging</HoverBorderGradient>
-        <HoverBorderGradient>Monitoring and logging</HoverBorderGradient>
+        {skills.map((skill, index) => (
+          <motion.div
+            key={skill}
+            initial={{ opacity: 0, scale: 0.85 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.3, delay: index * 0.025, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <HoverBorderGradient>{skill}</HoverBorderGradient>
+          </motion.div>
+        ))}
       </div>
     </div>
   );

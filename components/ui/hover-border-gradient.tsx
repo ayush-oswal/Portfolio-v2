@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { ACCENT_HEX } from "@/constants/theme";
 
 type Direction = "TOP" | "LEFT" | "BOTTOM" | "RIGHT";
 
@@ -43,8 +44,7 @@ export function HoverBorderGradient({
     RIGHT:
       "radial-gradient(16.2% 41.199999999999996% at 100% 50%, hsl(0, 0%, 100%) 0%, rgba(255, 255, 255, 0) 100%)",
   };
-  const highlight =
-  "radial-gradient(75% 181.15942028985506% at 50% 50%, #00FFFF 0%, rgba(255, 255, 255, 0) 100%)";
+  const highlight = `radial-gradient(75% 181.15942028985506% at 50% 50%, ${ACCENT_HEX} 0%, rgba(255, 255, 255, 0) 100%)`;
 
 
 
@@ -70,7 +70,7 @@ export function HoverBorderGradient({
     >
       <div
         className={cn(
-          "w-auto text-white z-10 bg-black px-4 py-2 rounded-[inherit]",
+          "w-auto text-white z-10 bg-surface px-4 py-2 rounded-[inherit]",
           className
         )}
       >
@@ -94,7 +94,7 @@ export function HoverBorderGradient({
         }}
         transition={{ ease: "linear", duration: duration ?? 1 }}
       />
-      <div className="bg-black absolute z-1 flex-none inset-[2px] rounded-[100px]" />
+      <div className="bg-surface absolute z-1 flex-none inset-[2px] rounded-[100px]" />
     </Tag>
   );
 }

@@ -8,10 +8,10 @@ import ExperienceSection from "@/components/ExperienceSection";
 
 export default function Home() {
   return (
-    <main className="max-w-3xl mx-auto px-[20px] md:px-0 mb-[150px]">
+    <main className="max-w-3xl mx-auto px-[20px] md:px-0 mb-[150px] relative z-10">
       <div className="flex flex-col gap-20 mt-16">
         <BottomBar />
-        <header>
+<header>
           <HeroSection />
         </header>
         <section>
