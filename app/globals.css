@@ -78,6 +78,12 @@
     @apply bg-background text-foreground;
   }
 
+  /* Thin branded scrollbar */
+  ::-webkit-scrollbar { width: 3px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(200, 255, 0, 0.2); border-radius: 2px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(200, 255, 0, 0.38); }
+
   /* ─── Subtle dot-grid background texture ─────────────────────────────── */
   /* SYNC: update rgba(200,255,0,...) here when changing ACCENT_HEX */
   body::before {
@@ -107,10 +113,15 @@
 }
 
 @layer utilities {
-  /* Greenish-yellow glow — add class="accent-glow" to elements */
-  /* SYNC: update rgba values here when changing ACCENT_HEX */
   .accent-glow {
     box-shadow: 0 0 20px rgba(200, 255, 0, 0.18),
                 0 0 60px rgba(200, 255, 0, 0.07);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(var(--accent-brand)) 0%, hsl(var(--accent-brand-dim)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }

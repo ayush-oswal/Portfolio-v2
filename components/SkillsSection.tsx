@@ -1,44 +1,102 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { HoverBorderGradient } from "./ui/hover-border-gradient";
 import { REVEAL_UP } from "@/constants/theme";
 
-const skills = [
-  "Javascript", "Typescript", "Java", "React", "Redux", "Next.js",
-  "Node.js", "Express.js", "MongoDB", "PostgreSQL", "Prisma", "Docker",
-  "Data Structures", "Algorithms", "WebSockets", "WebRtc", "Git", "GitHub",
-  "C++", "Python", "Fast API", "Golang", "GraphQL", "MySQL",
-  "Neo4j", "Pinecone", "LLMs", "System Design", "Redis", "Kafka", "n8n",
-  "ElasticSearch", "Kubernetes", "Nginx", "AWS", "Voice Agents", "CI/CD",
-  "EC2 deployments", "Vitest", "Retrieval Augmented Generation (RAG)", "MCP",
-  "gRPC", "DynamoDB", "Devops", "Debugging", "Monitoring and logging",
-  "FHIR", "HL7", "Healthcare Tech", "SIP Trunking", "BullMQ", "Microservices",
+const skillGroups = [
+  {
+    label: "Languages",
+    skills: ["Javascript", "Typescript", "Python", "Golang", "Java", "C++"],
+  },
+  {
+    label: "Frameworks",
+    skills: ["React", "Next.js", "Node.js", "Express.js", "Fast API", "Redux"],
+  },
+  {
+    label: "Databases",
+    skills: [
+      "PostgreSQL", "MongoDB", "MySQL", "Redis", "DynamoDB",
+      "Neo4j", "Pinecone", "ElasticSearch", "Prisma",
+    ],
+  },
+  {
+    label: "Infrastructure",
+    skills: [
+      "Docker", "Kubernetes", "AWS", "Nginx", "EC2 deployments",
+      "CI/CD", "Devops", "Kafka", "n8n", "BullMQ",
+    ],
+  },
+  {
+    label: "AI & Voice",
+    skills: [
+      "LLMs", "Voice Agents", "Retrieval Augmented Generation (RAG)",
+      "MCP", "SIP Trunking",
+    ],
+  },
+  {
+    label: "Tools & Practices",
+    skills: [
+      "Git", "GitHub", "WebSockets", "WebRtc", "GraphQL", "gRPC",
+      "Data Structures", "Algorithms", "System Design", "Microservices",
+      "Vitest", "Debugging", "Monitoring and logging",
+    ],
+  },
+  {
+    label: "Healthcare",
+    skills: ["FHIR", "HL7", "Healthcare Tech"],
+  },
 ];
+
+const totalSkills = skillGroups.reduce((acc, g) => acc + g.skills.length, 0);
 
 const SkillsSection = () => {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-8">
       <motion.div {...REVEAL_UP} className="text-center">
         <p className="pt-8 pb-1 font-bold text-5xl tracking-tight">
           Things I&apos;ve Convinced Interviewers I Know
         </p>
         <p className="text-sm italic pb-4">
           <span className="text-brand">
-            {skills.length} skills. Yes, I counted. No, I&apos;m not sorry.
+            {totalSkills} skills — now organized so you can find the ones
+            that impress you.
           </span>
         </p>
       </motion.div>
-      <div className="flex justify-center items-center flex-wrap gap-2">
-        {skills.map((skill, index) => (
+
+      <div className="flex flex-col gap-6">
+        {skillGroups.map((group, gi) => (
           <motion.div
-            key={skill}
-            initial={{ opacity: 0, scale: 0.85 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.3, delay: index * 0.025, ease: [0.22, 1, 0.36, 1] }}
+            key={group.label}
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-30px" }}
+            transition={{
+              duration: 0.4,
+              delay: gi * 0.05,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="flex flex-col gap-2.5"
           >
-            <HoverBorderGradient>{skill}</HoverBorderGradient>
+            {/* Category label + rule */}
+            <div className="flex items-center gap-3">
+              <span className="text-[11px] font-semibold uppercase tracking-widest text-brand shrink-0">
+                {group.label}
+              </span>
+              <div className="flex-1 h-px bg-border" />
+            </div>
+
+            {/* Pills */}
+            <div className="flex flex-wrap gap-2">
+              {group.skills.map((skill) => (
+                <span
+                  key={skill}
+                  className="text-xs font-medium bg-elevated border border-border text-foreground/70 px-3 py-1.5 rounded-md hover:border-brand/35 hover:text-foreground transition-colors duration-200 cursor-default"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
           </motion.div>
         ))}
       </div>

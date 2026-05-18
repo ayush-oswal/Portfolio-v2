@@ -1,7 +1,5 @@
-import { Card, CardContent, CardHeader } from "./ui/card";
-import { Github, Globe, VideoIcon } from "lucide-react";
+import { Github, Globe, VideoIcon, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
-import { LinkPreview } from "./ui/link-preview";
 
 interface ProjectProps {
   title: string;
@@ -23,59 +21,93 @@ const Project = ({
   video,
 }: ProjectProps) => {
   return (
-    <Card className="shadow-md hover:border-brand/30 transition-colors duration-200">
-      <CardHeader className="p-0">
-        <div className="p-2">
+    <div className="group flex flex-col bg-surface border border-border rounded-xl overflow-hidden hover:border-brand/30 transition-all duration-300 h-full">
+
+      {/* Image / placeholder */}
+      <div className="relative overflow-hidden bg-elevated">
+        {image ? (
           <Image
             src={image}
             alt={title}
             height={500}
             width={500}
-            className="rounded-t-lg h-[170px] object-cover"
+            className="w-full h-[175px] object-cover transition-transform duration-500 group-hover:scale-[1.04]"
           />
+        ) : (
+          <div className="w-full h-[175px] flex items-center justify-center text-muted-foreground/30 text-sm">
+            No preview
+          </div>
+        )}
+
+        {/* Hover overlay with action links */}
+        <div className="absolute inset-0 bg-background/75 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2.5">
+          {live && (
+            <a
+              href={live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 bg-brand text-[#0A0A0A] font-semibold px-3 py-1.5 rounded-lg text-xs hover:bg-brand/85 transition-colors"
+            >
+              <Globe className="h-3.5 w-3.5" /> Live
+            </a>
+          )}
+          <a
+            href={github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 bg-elevated border border-border/80 text-foreground px-3 py-1.5 rounded-lg text-xs hover:border-brand/40 transition-colors"
+          >
+            <Github className="h-3.5 w-3.5" /> Source
+          </a>
+          {video && (
+            <a
+              href={video}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 bg-elevated border border-border/80 text-foreground px-3 py-1.5 rounded-lg text-xs hover:border-brand/40 transition-colors"
+            >
+              <VideoIcon className="h-3.5 w-3.5" /> Demo
+            </a>
+          )}
         </div>
-      </CardHeader>
-      <CardContent>
-        <p className="font-semibold tracking-tight mt-1 text-base">{title}</p>
-        <p className="prose mt-2 max-w-full line-clamp-3 text-pretty font-medium font-sans text-xs text-muted-foreground dark:prose-invert">
+      </div>
+
+      {/* Content */}
+      <div className="flex flex-col gap-3 p-4 flex-1">
+        <div className="flex items-start justify-between gap-2">
+          <p className="font-semibold tracking-tight text-[15px]">{title}</p>
+          <a
+            href={github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 text-muted-foreground hover:text-brand transition-colors duration-200"
+          >
+            <ArrowUpRight className="h-4 w-4" />
+          </a>
+        </div>
+
+        <p className="text-xs text-muted-foreground leading-relaxed line-clamp-3 flex-1">
           {description}
         </p>
-        <div className="flex items-center gap-2 flex-wrap mt-4">
-          {skills.map((skill, idx) => (
-            <div
-              key={idx}
-              className="flex items-center gap-2 bg-elevated rounded-lg px-2 py-1 cursor-pointer"
+
+        {/* Stack badges */}
+        <div className="flex items-center gap-1.5 flex-wrap mt-auto pt-1">
+          {skills.slice(0, 5).map((skill) => (
+            <span
+              key={skill}
+              className="text-[10px] font-medium bg-background border border-border/60 text-foreground/55 px-2 py-0.5 rounded"
             >
-              <p className="text-[10px] font-semibold text-foreground/70">{skill}</p>
-            </div>
+              {skill}
+            </span>
           ))}
-        </div>
-        <div className="flex items-center gap-2 mt-4">
-          {live && (
-            <LinkPreview url={live}>
-              <div className="flex items-center gap-2 bg-[#0A0A0A] hover:bg-elevated border border-border hover:border-brand/50 rounded-lg px-2 py-1 cursor-pointer transition-all duration-200">
-                <Globe className="h-4 w-4 text-white" />
-                <p className="text-[10px] text-white">Website</p>
-              </div>
-            </LinkPreview>
-          )}
-          <LinkPreview url={github}>
-            <div className="flex items-center gap-2 bg-[#0A0A0A] hover:bg-elevated border border-border hover:border-brand/50 rounded-lg px-2 py-1 cursor-pointer transition-all duration-200">
-              <Github className="h-4 w-4 text-white" />
-              <p className="text-[10px] text-white">Source</p>
-            </div>
-          </LinkPreview>
-          {video && (
-            <LinkPreview url={video}>
-              <div className="flex items-center gap-2 bg-[#0A0A0A] hover:bg-elevated border border-border hover:border-brand/50 rounded-lg px-2 py-1 cursor-pointer transition-all duration-200">
-                <VideoIcon className="h-4 w-4 text-white" />
-                <p className="text-[10px] text-white">Video</p>
-              </div>
-            </LinkPreview>
+          {skills.length > 5 && (
+            <span className="text-[10px] text-muted-foreground/60">
+              +{skills.length - 5}
+            </span>
           )}
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 };
 

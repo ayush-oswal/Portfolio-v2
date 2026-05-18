@@ -6,7 +6,7 @@ import { REVEAL_UP } from "@/constants/theme";
 const AboutSection = () => {
   return (
     <motion.div {...REVEAL_UP}>
-      <p className="mt-10 md:-mt-12 pb-2 font-bold text-5xl text-center">About</p>
+      <p className="pb-2 font-bold text-5xl text-center">About</p>
       <p className="text-sm text-center mb-6 italic">
         <span className="text-brand">
           (in which I describe myself in third-person like a LinkedIn thought leader)
@@ -42,6 +42,27 @@ const AboutSection = () => {
           <br /><br />
           <span className="text-brand">Thanks for scrolling this far. Truly remarkable commitment.</span>
         </motion.p>
+
+        {/* Stats */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          className="flex gap-8 flex-wrap pt-6 mt-6 border-t border-border"
+        >
+          {[
+            { value: "17mo", label: "Professional exp"      },
+            { value: "13+",  label: "Projects shipped"      },
+            { value: "52",   label: "Technologies"          },
+            { value: "∞",    label: "Stack traces debugged" },
+          ].map(({ value, label }) => (
+            <div key={label} className="flex flex-col">
+              <span className="text-2xl font-bold text-brand leading-none">{value}</span>
+              <span className="text-xs text-muted-foreground mt-1">{label}</span>
+            </div>
+          ))}
+        </motion.div>
       </div>
     </motion.div>
   );
