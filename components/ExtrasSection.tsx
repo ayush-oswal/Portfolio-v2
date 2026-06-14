@@ -35,14 +35,14 @@ const ExtrasSection = () => {
         className="text-lg text-muted-foreground max-w-2xl mx-auto"
       >
         Consider again that dot. That&apos;s here. That&apos;s home. That&apos;s us. Every person who ever lived,
-        loved, and struggled did so on this tiny speck. It holds the entirety of human experience —
+        loved, and struggled did so on this tiny speck. It holds the entirety of human experience
         our joys and sorrows, our conflicts and triumphs. This pale blue dot, suspended in a sunbeam,
         is a poignant reminder of our shared humanity and the fragility of our existence in the
         vastness of space. It calls upon us to transcend divisions, cherish our common heritage, and
         strive for a future where humanity works together to protect our fragile home in the cosmos.
       </motion.div>
       <div className="italic text-right pt-4 text-muted-foreground text-sm max-w-2xl mx-auto">
-        — Carl Sagan
+        Carl Sagan
       </div>
     </motion.div>
   );

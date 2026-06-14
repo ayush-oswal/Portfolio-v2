@@ -5,7 +5,7 @@
 @layer base {
   :root {
     /* ─── Accent (greenish-yellow) ───────────────────────────────────────── */
-    /* HSL triplet only — consumed as hsl(var(--accent-brand)) */
+    /* HSL triplet only   consumed as hsl(var(--accent-brand)) */
     /* SYNC: when changing ACCENT_HEX in constants/theme.ts, update --accent-brand
        AND the rgba() in body::before below */
     --accent-brand: 74 100% 50%;      /* #C8FF00 */
@@ -102,7 +102,7 @@
 }
 
 @layer components {
-  /* Accent-colored list bullets — add class="li-accent" to <li> elements */
+  /* Accent-colored list bullets   add class="li-accent" to <li> elements */
   .li-accent {
     @apply relative pl-5;
   }

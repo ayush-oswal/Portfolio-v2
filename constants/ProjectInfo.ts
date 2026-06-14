@@ -36,7 +36,7 @@ export interface ProjectSchema {
       Title: "Ghostdial",
       Cover: "/p12.png",
       Description:
-        "A voice agent that anonymously calls anyone at any scheduled time. Record a message or add a prompt and the AI takes over the conversation — powered by real-time voice pipelines.",
+        "A voice agent that anonymously calls anyone at any scheduled time. Record a message or add a prompt and the AI takes over the conversation   powered by real-time voice pipelines.",
       Stack: ["Python", "FastAPI", "Next.js", "LiveKit", "Twilio", "Gemini", "AsyncIO"],
       Github: "https://github.com/ayush-oswal/Gostdial",
     },

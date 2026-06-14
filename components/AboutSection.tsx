@@ -22,7 +22,7 @@ const AboutSection = () => {
         >
           As a <span className="font-semibold text-brand">Backend Developer</span>, I have somehow
           convinced multiple employers that I know what I&apos;m doing with scalable systems. I pick up
-          new tech stacks at an alarming rate — whether that&apos;s a superpower or a coping mechanism
+          new tech stacks at an alarming rate   whether that&apos;s a superpower or a coping mechanism
           is still being evaluated. I&apos;m also{" "}
           <span className="font-semibold text-brand">completely language agnostic</span> now, thanks
           to AI. <span className="italic text-muted-foreground">(yes, that&apos;s a flex. no, I&apos;m not explaining further.)</span>
@@ -35,10 +35,9 @@ const AboutSection = () => {
           <span className="font-semibold text-brand">Chess ♟️</span> is also on the table,
           though results there are more... variable.
           <br /><br />
-          Currently in the &quot;learning <span className="font-semibold text-brand">AI</span>&quot; phase
-          that every developer is contractually obligated to go through, and patiently waiting to
-          build a <span className="font-semibold text-brand">SaaS</span> product that will definitely
-          disrupt the space and certainly not be abandoned after two weekends.
+          Having thrived in fast-paced environments wearing multiple hats from{" "}
+          <span className="font-semibold text-brand">developing</span> and debugging production
+          issues to contributing to business decisions I think I&apos;d be one heck of an addition to your team.
           <br /><br />
           <span className="text-brand">Thanks for scrolling this far. Truly remarkable commitment.</span>
         </motion.p>
@@ -52,10 +51,10 @@ const AboutSection = () => {
           className="flex gap-8 flex-wrap pt-6 mt-6 border-t border-border"
         >
           {[
-            { value: "17mo", label: "Professional exp"      },
-            { value: "13+",  label: "Projects shipped"      },
-            { value: "52",   label: "Technologies"          },
-            { value: "∞",    label: "Stack traces debugged" },
+            { value: "17mo", label: "Professional exp" },
+            { value: "13+", label: "Projects shipped" },
+            { value: "52", label: "Technologies" },
+            { value: "∞", label: "Stack traces debugged" },
           ].map(({ value, label }) => (
             <div key={label} className="flex flex-col">
               <span className="text-2xl font-bold text-brand leading-none">{value}</span>

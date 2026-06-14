@@ -58,7 +58,7 @@ const SkillsSection = () => {
         </p>
         <p className="text-sm italic pb-4">
           <span className="text-brand">
-            {totalSkills} skills — now organized so you can find the ones
+            {totalSkills} skills   now organized so you can find the ones
             that impress you.
           </span>
         </p>
