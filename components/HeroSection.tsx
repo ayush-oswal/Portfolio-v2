@@ -72,7 +72,7 @@ const HeroSection = () => {
       </motion.div>
 
       {/* Main Grid: Massive Display Headline + 2x2 Photo Grid */}
-      <div className="flex flex-col-reverse items-center text-center md:text-left md:grid md:grid-cols-[1fr_auto] md:items-center gap-10 lg:gap-12">
+      <div className="flex flex-col items-center text-center md:text-left md:grid md:grid-cols-[1fr_auto] md:items-center gap-10 lg:gap-12">
         {/* Left: Massive Archivo 900 H1 & Copy */}
         <div className="flex flex-col items-center md:items-start gap-6 min-w-0">
           <motion.div
