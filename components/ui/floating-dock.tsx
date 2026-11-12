@@ -1,10 +1,3 @@
-
-/**
- * Note: Use position fixed according to your needs
- * Desktop navbar is better positioned at the bottom
- * Mobile navbar is better positioned at bottom right.
- **/
-
 import { cn } from "@/lib/utils";
 import { IconLayoutNavbarCollapse } from "@tabler/icons-react";
 import {
@@ -49,31 +42,39 @@ const FloatingDockMobile = ({
         {open && (
           <motion.div
             layoutId="nav"
-            className="absolute bottom-full mb-2 inset-x-0 flex flex-col gap-2"
+            className="absolute bottom-full mb-2 right-0 flex flex-col gap-1.5"
           >
             {items.map((item, idx) => (
               <motion.div
                 key={item.title}
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 6 }}
                 animate={{
                   opacity: 1,
                   y: 0,
                 }}
                 exit={{
                   opacity: 0,
-                  y: 10,
+                  y: 6,
                   transition: {
-                    delay: idx * 0.05,
+                    delay: idx * 0.04,
                   },
                 }}
-                transition={{ delay: (items.length - 1 - idx) * 0.05 }}
+                transition={{ delay: (items.length - 1 - idx) * 0.04 }}
               >
                 <Link
                   href={item.href}
-                  key={item.title}
-                  className="h-10 w-10 rounded-full bg-gray-50 dark:bg-neutral-900 flex items-center justify-center"
+                  target={item.href.startsWith("mailto:") ? undefined : "_blank"}
+                  rel={
+                    item.href.startsWith("mailto:")
+                      ? undefined
+                      : "noopener noreferrer"
+                  }
+                  className="h-10 w-10 bg-[#15151B] border border-white/15 hover:border-brand text-[#F2F1EE] hover:text-brand flex items-center justify-center transition-colors duration-200"
+                  aria-label={item.title}
                 >
-                  <div className="h-4 w-4">{item.icon}</div>
+                  <div className="h-4 w-4 flex items-center justify-center">
+                    {item.icon}
+                  </div>
                 </Link>
               </motion.div>
             ))}
@@ -82,9 +83,10 @@ const FloatingDockMobile = ({
       </AnimatePresence>
       <button
         onClick={() => setOpen(!open)}
-        className="h-10 w-10 rounded-full bg-gray-50 dark:bg-neutral-800 flex items-center justify-center"
+        aria-label="Toggle navigation links"
+        className="h-11 w-11 bg-[#15151B] border border-white/15 hover:border-brand text-[#F2F1EE] hover:text-brand flex items-center justify-center transition-colors duration-200"
       >
-        <IconLayoutNavbarCollapse className="h-5 w-5 text-neutral-500 dark:text-neutral-400" />
+        <IconLayoutNavbarCollapse className="h-5 w-5" />
       </button>
     </div>
   );
@@ -97,13 +99,13 @@ const FloatingDockDesktop = ({
   items: { title: string; icon: any; href: string }[];
   className?: string;
 }) => {
-  let mouseX = useMotionValue(Infinity);
+  const mouseX = useMotionValue(Infinity);
   return (
     <motion.div
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
-        "mx-auto hidden md:flex h-16 gap-4 items-end  rounded-2xl bg-gray-50 dark:bg-neutral-900 px-4 pb-3",
+        "mx-auto hidden md:flex h-14 gap-3 items-end bg-[#15151B]/95 backdrop-blur-sm border border-white/15 px-3 pb-2.5",
         className
       )}
     >
@@ -125,41 +127,36 @@ function IconContainer({
   icon: React.ReactNode;
   href: string;
 }) {
-  let ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
 
-  let distance = useTransform(mouseX, (val) => {
-    let bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
-
+  const distance = useTransform(mouseX, (val) => {
+    const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
     return val - bounds.x - bounds.width / 2;
   });
 
-  let widthTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
-  let heightTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
+  const widthTransform = useTransform(distance, [-120, 0, 120], [36, 56, 36]);
+  const heightTransform = useTransform(distance, [-120, 0, 120], [36, 56, 36]);
 
-  let widthTransformIcon = useTransform(distance, [-150, 0, 150], [20, 40, 20]);
-  let heightTransformIcon = useTransform(
-    distance,
-    [-150, 0, 150],
-    [20, 40, 20]
-  );
+  const widthTransformIcon = useTransform(distance, [-120, 0, 120], [16, 26, 16]);
+  const heightTransformIcon = useTransform(distance, [-120, 0, 120], [16, 26, 16]);
 
-  let width = useSpring(widthTransform, {
+  const width = useSpring(widthTransform, {
     mass: 0.1,
     stiffness: 150,
     damping: 12,
   });
-  let height = useSpring(heightTransform, {
+  const height = useSpring(heightTransform, {
     mass: 0.1,
     stiffness: 150,
     damping: 12,
   });
 
-  let widthIcon = useSpring(widthTransformIcon, {
+  const widthIcon = useSpring(widthTransformIcon, {
     mass: 0.1,
     stiffness: 150,
     damping: 12,
   });
-  let heightIcon = useSpring(heightTransformIcon, {
+  const heightIcon = useSpring(heightTransformIcon, {
     mass: 0.1,
     stiffness: 150,
     damping: 12,
@@ -168,21 +165,25 @@ function IconContainer({
   const [hovered, setHovered] = useState(false);
 
   return (
-    <Link target={href !== "/" ? "_blank" : ""} href={href}>
+    <Link
+      target={href.startsWith("mailto:") ? undefined : "_blank"}
+      rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+      href={href}
+    >
       <motion.div
         ref={ref}
         style={{ width, height }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="aspect-square rounded-full bg-gray-200 dark:bg-neutral-800 flex items-center justify-center relative"
+        className="aspect-square bg-[#101014] border border-white/15 hover:border-brand text-[#F2F1EE] hover:text-brand flex items-center justify-center relative transition-colors duration-200"
       >
         <AnimatePresence>
           {hovered && (
             <motion.div
-              initial={{ opacity: 0, y: 10, x: "-50%" }}
+              initial={{ opacity: 0, y: 6, x: "-50%" }}
               animate={{ opacity: 1, y: 0, x: "-50%" }}
               exit={{ opacity: 0, y: 2, x: "-50%" }}
-              className="px-2 py-0.5 whitespace-pre rounded-md bg-gray-100 border dark:bg-neutral-800 dark:border-neutral-900 dark:text-white border-gray-200 text-neutral-700 absolute left-1/2 -translate-x-1/2 -top-8 w-fit text-xs"
+              className="tech-label px-2 py-1 whitespace-pre bg-[#101014] border border-brand text-brand absolute left-1/2 -translate-x-1/2 -top-8 w-fit"
             >
               {title}
             </motion.div>

@@ -15,30 +15,59 @@ const skillGroups = [
   {
     label: "Databases",
     skills: [
-      "PostgreSQL", "MongoDB", "MySQL", "Redis", "DynamoDB",
-      "Neo4j", "Pinecone", "ElasticSearch", "Prisma",
+      "PostgreSQL",
+      "MongoDB",
+      "MySQL",
+      "Redis",
+      "DynamoDB",
+      "Neo4j",
+      "Pinecone",
+      "ElasticSearch",
+      "Prisma",
     ],
   },
   {
     label: "Infrastructure",
     skills: [
-      "Docker", "Kubernetes", "AWS", "Nginx", "EC2 deployments",
-      "CI/CD", "Devops", "Kafka", "n8n", "BullMQ",
+      "Docker",
+      "Kubernetes",
+      "AWS",
+      "Terraform",
+      "Nginx",
+      "EC2 deployments",
+      "CI/CD",
+      "Devops",
+      "Kafka",
+      "n8n",
+      "BullMQ",
     ],
   },
   {
     label: "AI & Voice",
     skills: [
-      "LLMs", "Voice Agents", "Retrieval Augmented Generation (RAG)",
-      "MCP", "SIP Trunking",
+      "Agentic AI",
+      "Multi-lingual Voice Agents",
+      "Retrieval Augmented Generation (RAG)",
+      "MCP",
+      "SIP Trunking",
     ],
   },
   {
     label: "Tools & Practices",
     skills: [
-      "Git", "GitHub", "WebSockets", "WebRtc", "GraphQL", "gRPC",
-      "Data Structures", "Algorithms", "System Design", "Microservices",
-      "Vitest", "Debugging", "Monitoring and logging",
+      "Git",
+      "GitHub",
+      "WebSockets",
+      "WebRtc",
+      "GraphQL",
+      "gRPC",
+      "Data Structures",
+      "Algorithms",
+      "System Design",
+      "Microservices",
+      "Vitest",
+      "Debugging",
+      "Monitoring and logging",
     ],
   },
   {
@@ -52,46 +81,56 @@ const totalSkills = skillGroups.reduce((acc, g) => acc + g.skills.length, 0);
 const SkillsSection = () => {
   return (
     <div className="flex flex-col gap-8">
-      <motion.div {...REVEAL_UP} className="text-center">
-        <p className="pt-8 pb-1 font-bold text-5xl tracking-tight">
+      {/* Section Header */}
+      <motion.div
+        {...REVEAL_UP}
+        className="flex flex-col items-center md:items-start text-center md:text-left gap-3 border-b border-white/15 pb-6"
+      >
+        <span className="tech-label text-brand">
+          02 // CAPABILITIES &amp; STACK
+        </span>
+        <h2 className="section-h2 text-4xl sm:text-5xl md:text-6xl uppercase text-[#F2F1EE]">
           Things I&apos;ve Convinced Interviewers I Know
-        </p>
-        <p className="text-sm italic pb-4">
-          <span className="text-brand">
-            {totalSkills} skills   now organized so you can find the ones
-            that impress you.
-          </span>
+        </h2>
+        <p className="text-base font-medium italic text-brand">
+          {totalSkills} skills   now organized so you can find the ones that impress you.
         </p>
       </motion.div>
 
-      <div className="flex flex-col gap-6">
+      {/* Blueprint Matrix */}
+      <div className="border-t border-l border-white/15 bg-[#15151B]/40">
         {skillGroups.map((group, gi) => (
           <motion.div
             key={group.label}
-            initial={{ opacity: 0, y: 14 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-30px" }}
             transition={{
-              duration: 0.4,
-              delay: gi * 0.05,
+              duration: 0.35,
+              delay: gi * 0.04,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="flex flex-col gap-2.5"
+            className="border-r border-b border-white/15 p-5 sm:p-6 flex flex-col items-center md:items-stretch gap-4"
           >
-            {/* Category label + rule */}
-            <div className="flex items-center gap-3">
-              <span className="text-[11px] font-semibold uppercase tracking-widest text-brand shrink-0">
-                {group.label}
+            {/* Category Header */}
+            <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-2 w-full">
+              <div className="flex items-center gap-3">
+                <span className="tech-label text-[#85858D]">
+                  [{String(gi + 1).padStart(2, "0")}]
+                </span>
+                <span className="tech-label text-brand">{group.label}</span>
+              </div>
+              <span className="tech-label text-[#85858D]">
+                {String(group.skills.length).padStart(2, "0")} ITEMS
               </span>
-              <div className="flex-1 h-px bg-border" />
             </div>
 
-            {/* Pills */}
-            <div className="flex flex-wrap gap-2">
+            {/* Technical Tags */}
+            <div className="flex flex-wrap justify-center md:justify-start gap-2">
               {group.skills.map((skill) => (
                 <span
                   key={skill}
-                  className="text-xs font-medium bg-elevated border border-border text-foreground/70 px-3 py-1.5 rounded-md hover:border-brand/35 hover:text-foreground transition-colors duration-200 cursor-default"
+                  className="tech-label bg-[#101014] border border-white/15 text-[#F2F1EE]/80 px-3 py-1.5 hover:border-brand hover:text-brand transition-colors duration-200 cursor-default"
                 >
                   {skill}
                 </span>

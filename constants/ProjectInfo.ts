@@ -10,6 +10,16 @@ export interface ProjectSchema {
   
   export const Fullstack: ProjectSchema[] = [
     {
+      Title: "Language Tutor MCP",
+      Cover: "/p13.png",
+      Description:
+        "Built an MCP-powered Spanish learning platform using Node.js, PostgreSQL, and Clerk. Uses 2,000 high-frequency Spanish words from a news corpus to deliver personalized vocabulary learning and adaptive revision exercises (matching, fill-in-the-blanks, story completion, etc.) based on user familiarity. Integrates with any MCP-compatible client.",
+      Stack: ["Node.js", "MCP", "PostgreSQL", "Clerk"],
+      Live: "https://language-tutor-mcp.ayushoswal.com",
+      Github: "https://github.com/ayush-oswal/language-tutor",
+      Video: "https://www.youtube.com/watch?v=2GYE73xDzrM",
+    },
+    {
       Title: "CodeCollab",
       Cover: "/p1.png",
       Description:
@@ -28,7 +38,6 @@ export interface ProjectSchema {
         "Clerk Auth",
         "Tailwind",
       ],
-      Live: "https://codecollab.ayushoswal.com/",
       Github: "https://github.com/ayush-oswal/Collaborative-code-editor",
       Video: "https://x.com/Oswal_ayushh/status/1799106143937315018",
     },

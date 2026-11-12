@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Archivo, Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Script from "next/script";
@@ -73,7 +73,17 @@ const structuredData = {
   ]
 };
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-inter",
+});
+
+const archivo = Archivo({
+  subsets: ["latin"],
+  weight: ["700", "800", "900"],
+  variable: "--font-archivo",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ayushoswal.com"),
@@ -134,14 +144,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${archivo.variable}`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
-      <body className={inter.className}>
+      <body className={`${inter.className} bg-[#101014] text-[#F2F1EE] antialiased selection:bg-brand selection:text-[#101014]`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -149,14 +159,14 @@ export default function RootLayout({
         >
           {children}
           <Script id="clarity-script" strategy="afterInteractive">
-          {`
-            (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "oc7yddme4j");
-          `}
-        </Script>
+            {`
+              (function(c,l,a,r,i,t,y){
+              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+              })(window, document, "clarity", "script", "oc7yddme4j");
+            `}
+          </Script>
         </ThemeProvider>
       </body>
     </html>

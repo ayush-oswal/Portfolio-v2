@@ -1,32 +1,42 @@
-// ─── ACCENT COLOR ──────────────────────────────────────────────────────────────
-// Change ACCENT_HEX here and it propagates everywhere.
-// NOTE: After changing, also update the rgba() value in app/globals.css (body::before dot grid).
-export const ACCENT_HEX = "#C8FF00";
-export const ACCENT_HEX_DIM = "#A0CC00";
-export const ACCENT_RGB = "200, 255, 0";
-export const ACCENT_HSL = "74 100% 50%"; // HSL triplet, no hsl() wrapper
+// ─── TECHNICAL BRUTALISM PALETTE ─────────────────────────────────────────────
+// SYNC: Keep in sync with CSS variables and body::before grid in app/globals.css.
+export const ACCENT_HEX = "#6B9EFF"; // Ship Blue / System Blue
+export const ACCENT_HEX_DIM = "#4C82EB";
+export const ACCENT_RGB = "107, 158, 255";
+export const ACCENT_HSL = "219 100% 71%";
 
 // Background palette
-export const BG_BASE = "#0A0A0A";
-export const BG_SURFACE = "#111111";
-export const BG_ELEVATED = "#1A1A1A";
-export const BG_BORDER = "#2A2A2A";
+export const BG_BASE = "#101014"; // Deep Onyx
+export const BG_SURFACE = "#15151B";
+export const BG_ELEVATED = "#1C1C24";
+export const BORDER_LINE = "rgba(242, 241, 238, 0.16)";
 
 // Text palette
-export const TEXT_PRIMARY = "#F0F0F0";
-export const TEXT_SECONDARY = "#888888";
+export const TEXT_PRIMARY = "#F2F1EE"; // Warm Off-white
+export const TEXT_MUTED = "#85858D";
 
 // ─── FRAMER MOTION PRESETS ────────────────────────────────────────────────────
 export const REVEAL_UP = {
-  initial: { opacity: 0, y: 32 },
+  initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-60px" },
-  transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
+  transition: {
+    duration: 0.45,
+    ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+  },
 };
 
 export const REVEAL_FADE = {
   initial: { opacity: 0 },
   whileInView: { opacity: 1 },
   viewport: { once: true },
-  transition: { duration: 0.6, ease: "easeOut" },
+  transition: { duration: 0.5, ease: "easeOut" },
+};
+
+// Scroll-triggered 6px Y-axis slide for sidebar section labels
+export const SIDEBAR_LABEL_SLIDE = {
+  initial: { opacity: 0, y: 6 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -6 },
+  transition: { duration: 0.25, ease: "easeOut" },
 };

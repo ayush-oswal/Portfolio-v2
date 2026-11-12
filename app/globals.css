@@ -1,127 +1,207 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist+Mono:wght@500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    /* ─── Accent (greenish-yellow) ───────────────────────────────────────── */
-    /* HSL triplet only   consumed as hsl(var(--accent-brand)) */
-    /* SYNC: when changing ACCENT_HEX in constants/theme.ts, update --accent-brand
-       AND the rgba() in body::before below */
-    --accent-brand: 74 100% 50%;      /* #C8FF00 */
-    --accent-brand-dim: 74 100% 40%; /* #A0CC00 */
+@property --brand-r {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 107;
+}
 
-    /* ─── Backgrounds ──────────────────────────────────────────────────── */
-    --background: 0 0% 4%;   /* #0A0A0A */
-    --surface: 0 0% 7%;      /* #111111 */
-    --elevated: 0 0% 10%;    /* #1A1A1A */
+@property --brand-g {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 158;
+}
 
-    /* ─── Text ─────────────────────────────────────────────────────────── */
-    --foreground: 0 0% 94%;      /* #F0F0F0 */
-    --muted-foreground: 0 0% 53%; /* #888888 */
+@property --brand-b {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 255;
+}
 
-    /* ─── Borders ──────────────────────────────────────────────────────── */
-    --border: 0 0% 17%; /* #2A2A2A */
-    --input: 0 0% 17%;
+@keyframes brand-cycle {
 
-    /* ─── Shadcn required tokens ────────────────────────────────────────── */
-    --card: 0 0% 7%;
-    --card-foreground: 0 0% 94%;
-    --popover: 0 0% 7%;
-    --popover-foreground: 0 0% 94%;
-    --primary: 74 100% 50%;
-    --primary-foreground: 0 0% 4%;
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 0 0% 94%;
-    --muted: 0 0% 10%;
-    --accent: 0 0% 10%;
-    --accent-foreground: 0 0% 94%;
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 0 0% 94%;
-    --ring: 74 100% 50%;
-    --radius: 0.5rem;
+  0%,
+  48%,
+  100% {
+    --brand-r: 107;
+    --brand-g: 158;
+    --brand-b: 255;
   }
 
-  /* Keep .dark identical so next-themes class toggle doesn't break anything */
-  .dark {
-    --accent-brand: 74 100% 50%;
-    --accent-brand-dim: 74 100% 40%;
-    --background: 0 0% 4%;
-    --surface: 0 0% 7%;
-    --elevated: 0 0% 10%;
-    --foreground: 0 0% 94%;
-    --muted-foreground: 0 0% 53%;
-    --border: 0 0% 17%;
-    --input: 0 0% 17%;
-    --card: 0 0% 7%;
-    --card-foreground: 0 0% 94%;
-    --popover: 0 0% 7%;
-    --popover-foreground: 0 0% 94%;
-    --primary: 74 100% 50%;
-    --primary-foreground: 0 0% 4%;
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 0 0% 94%;
-    --muted: 0 0% 10%;
-    --accent: 0 0% 10%;
-    --accent-foreground: 0 0% 94%;
+  50%,
+  98% {
+    --brand-r: 250;
+    --brand-g: 204;
+    --brand-b: 21;
+  }
+}
+
+@layer base {
+  :root {
+    /* ─── Technical Brutalism Tokens ─────────────────────────────────────── */
+    /* Holds 13.5s on Ship Blue (#6B9EFF), fades 1.5s to Yellow (#FACC15), holds 13.5s, fades 1.5s back */
+    --brand-r: 107;
+    --brand-g: 158;
+    --brand-b: 255;
+    --brand-color: rgb(var(--brand-r) var(--brand-g) var(--brand-b));
+    --accent-brand: 219 100% 71%;
+    --accent-brand-dim: 220 80% 61%;
+    animation: brand-cycle 30s ease-in-out infinite;
+
+    /* ─── Backgrounds ────────────────────────────────────────────────────── */
+    --background: 240 11% 7%;
+    /* #101014 (Deep Onyx) */
+    --surface: 240 12% 9%;
+    /* #15151B */
+    --elevated: 240 12% 13%;
+    /* #1C1C24 */
+
+    /* ─── Text ───────────────────────────────────────────────────────────── */
+    --foreground: 45 14% 94%;
+    /* #F2F1EE (Warm Off-white) */
+    --muted-foreground: 240 4% 54%;
+    /* #85858D */
+
+    /* ─── Borders ────────────────────────────────────────────────────────── */
+    --border-line: rgba(242, 241, 238, 0.16);
     --destructive: 0 63% 31%;
-    --destructive-foreground: 0 0% 94%;
-    --ring: 74 100% 50%;
+    --radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :root {
+      animation: none;
+    }
+  }
+
+  .dark {
+    --accent-brand: 219 100% 71%;
+    --accent-brand-dim: 220 80% 61%;
+    --background: 240 11% 7%;
+    --surface: 240 12% 9%;
+    --elevated: 240 12% 13%;
+    --foreground: 45 14% 94%;
+    --muted-foreground: 240 4% 54%;
+    --border-line: rgba(242, 241, 238, 0.16);
+    --destructive: 0 63% 31%;
   }
 }
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: var(--border-line);
   }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #101014;
+    color: #F2F1EE;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    background-color: #101014;
+    color: #F2F1EE;
+    font-weight: 500;
   }
 
-  /* Thin branded scrollbar */
-  ::-webkit-scrollbar { width: 3px; }
-  ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: rgba(200, 255, 0, 0.2); border-radius: 2px; }
-  ::-webkit-scrollbar-thumb:hover { background: rgba(200, 255, 0, 0.38); }
+  /* Thin technical scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
 
-  /* ─── Subtle dot-grid background texture ─────────────────────────────── */
-  /* SYNC: update rgba(200,255,0,...) here when changing ACCENT_HEX */
+  ::-webkit-scrollbar-track {
+    background: #101014;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgb(var(--brand-r) var(--brand-g) var(--brand-b) / 0.3);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(var(--brand-r) var(--brand-g) var(--brand-b) / 0.6);
+  }
+
+  /* ─── 72px x 72px Blueprint Grid (1px lines at 4.5% opacity) ─────────── */
   body::before {
     content: "";
     position: fixed;
     inset: 0;
-    background-image: radial-gradient(
-      circle,
-      rgba(200, 255, 0, 0.055) 1px,
-      transparent 1px
-    );
-    background-size: 28px 28px;
+    background-image:
+      linear-gradient(to right, rgba(242, 241, 238, 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(242, 241, 238, 0.045) 1px, transparent 1px);
+    background-size: 72px 72px;
     pointer-events: none;
     z-index: 0;
   }
 }
 
 @layer components {
-  /* Accent-colored list bullets   add class="li-accent" to <li> elements */
+
+  /* Technical Labels (Geist Mono, 600-700, 11px, uppercase, 0.16-0.2em tracking) */
+  .tech-label {
+    font-family: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    line-height: 1.25;
+  }
+
+  /* Section H2 Display Headline (Archivo 800, tight line-height 0.92) */
+  .section-h2 {
+    font-family: var(--font-archivo), "Archivo", sans-serif;
+    font-weight: 800;
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+  }
+
+  /* Blueprint hairline border transition */
+  .bp-interactive {
+    border: 1px solid rgba(242, 241, 238, 0.16);
+    transition: color 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+  }
+
+  .bp-interactive:hover {
+    border-color: var(--brand-color);
+  }
+
+  /* Accent-colored list bullets */
   .li-accent {
     @apply relative pl-5;
   }
+
   .li-accent::before {
     content: "▸";
-    @apply absolute left-0 text-brand;
+    position: absolute;
+    left: 0;
+    color: var(--brand-color);
+    font-family: "Geist Mono", monospace;
   }
 }
 
 @layer utilities {
   .accent-glow {
-    box-shadow: 0 0 20px rgba(200, 255, 0, 0.18),
-                0 0 60px rgba(200, 255, 0, 0.07);
+    box-shadow: 0 0 24px rgb(var(--brand-r) var(--brand-g) var(--brand-b) / 0.14),
+      0 0 60px rgb(var(--brand-r) var(--brand-g) var(--brand-b) / 0.05);
   }
 
   .text-gradient {
-    background: linear-gradient(135deg, hsl(var(--accent-brand)) 0%, hsl(var(--accent-brand-dim)) 100%);
+    background: linear-gradient(135deg, var(--brand-color) 0%, #F2F1EE 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }

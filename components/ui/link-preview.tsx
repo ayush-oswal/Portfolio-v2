@@ -135,7 +135,7 @@ export const LinkPreview = ({
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block p-1 bg-white border-2 border-transparent shadow rounded-xl hover:border-neutral-200 dark:hover:border-neutral-800"
+                  className="block p-1 bg-[#15151B] border border-brand/60 shadow-xl"
                   style={{ fontSize: 0 }}
                 >
                   <Image
@@ -145,7 +145,6 @@ export const LinkPreview = ({
                     quality={quality}
                     layout={layout}
                     priority={true}
-                    className="rounded-lg"
                     alt="preview image"
                   />
                 </Link>

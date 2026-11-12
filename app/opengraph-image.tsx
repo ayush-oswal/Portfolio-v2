@@ -19,8 +19,8 @@ export default function OpenGraphImage() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#0B1220",
-          color: "white",
+          background: "#101014",
+          color: "#F2F1EE",
           padding: 64,
         }}
       >
@@ -28,17 +28,22 @@ export default function OpenGraphImage() {
           style={{
             display: "flex",
             flexDirection: "column",
-            gap: 18,
+            gap: 20,
             width: "100%",
+            border: "1px solid rgba(242, 241, 238, 0.16)",
+            padding: 48,
           }}
         >
-          <div style={{ fontSize: 56, fontWeight: 800, lineHeight: 1.1 }}>
-            Ayush Oswal
+          <div style={{ fontSize: 18, color: "#6B9EFF", letterSpacing: 4 }}>
+            00 // PORTFOLIO   PUNE, IN
           </div>
-          <div style={{ fontSize: 30, opacity: 0.9 }}>
+          <div style={{ fontSize: 72, fontWeight: 900, lineHeight: 0.95 }}>
+            AYUSH OSWAL
+          </div>
+          <div style={{ fontSize: 28, color: "#85858D" }}>
             Backend Developer • Microservices • AI Agents
           </div>
-          <div style={{ fontSize: 22, opacity: 0.75 }}>ayushoswal.com</div>
+          <div style={{ fontSize: 20, color: "#6B9EFF" }}>ayushoswal.com</div>
         </div>
       </div>
     ),

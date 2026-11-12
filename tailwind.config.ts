@@ -1,13 +1,13 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -18,50 +18,65 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["var(--font-inter)", "Inter", "system-ui", "sans-serif"],
+        display: ["var(--font-archivo)", "Archivo", "system-ui", "sans-serif"],
+        mono: [
+          "'Geist Mono'",
+          "ui-monospace",
+          "SFMono-Regular",
+          "Menlo",
+          "Monaco",
+          "Consolas",
+          "monospace",
+        ],
+      },
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        surface: "hsl(var(--surface))",
-        elevated: "hsl(var(--elevated))",
+        border: "rgba(242, 241, 238, 0.16)",
+        blueprint: "rgba(242, 241, 238, 0.16)",
+        input: "rgba(242, 241, 238, 0.16)",
+        ring: "rgb(var(--brand-r) var(--brand-g) var(--brand-b) / <alpha-value>)",
+        background: "#101014",
+        foreground: "#F2F1EE",
+        surface: "#15151B",
+        elevated: "#1C1C24",
         brand: {
-          DEFAULT: "hsl(var(--accent-brand))",
-          dim: "hsl(var(--accent-brand-dim))",
+          DEFAULT: "rgb(var(--brand-r) var(--brand-g) var(--brand-b) / <alpha-value>)",
+          dim: "rgb(var(--brand-r) var(--brand-g) var(--brand-b) / 0.8)",
         },
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "rgb(var(--brand-r) var(--brand-g) var(--brand-b) / <alpha-value>)",
+          foreground: "#101014",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: "#1C1C24",
+          foreground: "#F2F1EE",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
+          foreground: "#F2F1EE",
         },
         muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+          DEFAULT: "#1C1C24",
+          foreground: "#85858D",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+          DEFAULT: "#1C1C24",
+          foreground: "#F2F1EE",
         },
         popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+          DEFAULT: "#15151B",
+          foreground: "#F2F1EE",
         },
         card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+          DEFAULT: "#15151B",
+          foreground: "#F2F1EE",
         },
       },
       boxShadow: {
-        "accent-sm": "0 0 12px rgba(200,255,0,0.20)",
-        "accent-md": "0 0 30px rgba(200,255,0,0.15), 0 0 80px rgba(200,255,0,0.06)",
+        "accent-sm": "0 0 12px rgba(107, 158, 255, 0.18)",
+        "accent-md":
+          "0 0 28px rgba(107, 158, 255, 0.14), 0 0 72px rgba(107, 158, 255, 0.06)",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -85,6 +100,6 @@ const config = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config
+} satisfies Config;
 
-export default config
+export default config;
