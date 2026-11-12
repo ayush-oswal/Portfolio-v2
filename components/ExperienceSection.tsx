@@ -276,6 +276,16 @@ const ExperienceSection = () => {
                   .
                 </li>
                 <li className="li-accent">
+                  Integrated{" "}
+                  <strong className="text-[#F2F1EE] font-semibold underline decoration-brand/60 underline-offset-4">
+                    pVerify for automated insurance verification and validation
+                  </strong>
+                  , enabling seamless real-time eligibility checks within the platform. Implemented robust error handling for API failures and edge cases to ensure reliable processing and graceful handling of unsuccessful verification requests{" "}
+                  <span className="text-brand">
+                    (because dealing with insurance APIs is an adventure nobody asked for).
+                  </span>
+                </li>
+                <li className="li-accent">
                   Configured{" "}
                   <strong className="text-[#F2F1EE] font-semibold underline decoration-brand/60 underline-offset-4">
                     application-wide alert notification systems
