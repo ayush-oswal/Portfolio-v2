@@ -21,56 +21,37 @@ const AboutSection = () => {
 
       {/* Blueprint Copy Container */}
       <div className="border border-white/15 bg-[#15151B]/50">
-        <div className="p-6 sm:p-8 border-t-2 border-t-brand md:border-t-0 md:border-l-2 md:border-l-brand text-center md:text-left">
-          <motion.p
-            className="text-lg font-medium text-[#F2F1EE]/85 leading-relaxed"
+        <div className="p-6 sm:p-8 border-t-2 border-t-brand md:border-t-0 md:border-l-2 md:border-l-brand text-left">
+          <motion.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-col gap-4 text-[#F2F1EE]/85 text-base sm:text-lg font-medium leading-relaxed"
           >
-            As a <span className="font-semibold text-brand">Backend Developer</span>, I have somehow
-            convinced multiple employers that I know what I&apos;m doing with scalable systems. Along
-            the way I&apos;ve shipped production-ready{" "}
-            <span className="font-semibold text-brand">multilingual voice agents</span>,{" "}
-            <span className="font-semibold text-brand">multi-agent flows</span>, and{" "}
-            <span className="font-semibold text-brand">ingestion pipelines</span>, and integrated with{" "}
-            <span className="font-semibold text-brand">multiple cloud providers</span>   mostly so no
-            single cloud outage can take all the credit for ruining my weekend. I pick up new tech
-            stacks at an alarming rate, and I&apos;m{" "}
-            <span className="font-semibold text-brand">completely language agnostic</span> now, thanks
-            to AI.{" "}
-            <span className="italic text-[#85858D]">
-              (yes, that&apos;s a flex. no, I&apos;m not explaining further.)
-            </span>
-            <br />
-            <br />
-            I also used to enjoy grinding{" "}
-            <span className="font-semibold text-brand">DSA</span> problems   back when inverting
-            binary trees felt like a personality trait rather than a hazing ritual.
-            <br />
-            <br />
-            Outside of staring at terminals: I&apos;m a{" "}
-            <span className="font-semibold text-brand">cycling enthusiast</span> who has survived{" "}
-            <span className="font-semibold text-brand">100+ km rides</span> during a brief, dangerous
-            episode of peak motivation. I will still absolutely destroy you at{" "}
-            <span className="font-semibold text-brand">badminton 🏸</span>, and{" "}
-            <span className="font-semibold text-brand">Chess ♟️</span> is also on the table, though
-            results there are more... variable. When my legs and Elo both need a break, I have a keen
-            interest in <span className="font-semibold text-brand">biology</span> and binge{" "}
-            <span className="font-semibold text-brand">nature documentaries</span>   mostly to watch
-            apex predators work marginally harder than I do to catch lunch.
-            <br />
-            <br />
-            Having thrived in fast-paced environments wearing multiple hats from{" "}
-            <span className="font-semibold text-brand">developing</span> and debugging production
-            issues to contributing to business decisions I think I&apos;d be one heck of an addition to your team.
-            <br />
-            <br />
-            <span className="text-brand">
+            <p>
+              As a <span className="font-semibold text-brand">Backend Developer</span>, I&apos;ve somehow convinced multiple employers that I know what I&apos;m doing with scalable systems:
+            </p>
+
+            <ul className="list-none pl-0 space-y-3 text-base">
+              <li className="li-accent">
+                Shipped production-ready <span className="font-semibold text-brand">multilingual voice agents</span>, <span className="font-semibold text-brand">multi-agent workflows</span>, and <span className="font-semibold text-brand">ingestion pipelines</span> across multiple cloud providers. Completely <span className="font-semibold text-brand">language agnostic</span> thanks to AI <span className="italic text-[#85858D]">(yes, that&apos;s a flex; no, I&apos;m not explaining further)</span>.
+              </li>
+              <li className="li-accent">
+                Participated in late-night debugging sessions when all hell breaks loose on prod — of course with a coffee and sheer stubbornness.
+              </li>
+              <li className="li-accent">
+                Used to enjoy grinding <span className="font-semibold text-brand">DSA</span> problems — back when inverting binary trees felt like a personality trait rather than a hazing ritual.
+              </li>
+              <li className="li-accent">
+                Outside of staring at terminals: a <span className="font-semibold text-brand">cycling enthusiast</span> (survived 100+ km rides during a brief burst of peak motivation), will destroy you at <span className="font-semibold text-brand">badminton 🏸</span>, open to variable-outcome <span className="font-semibold text-brand">Chess ♟️</span>, and binge-watches <span className="font-semibold text-brand">nature documentaries</span> and biology deep-dives.
+              </li>
+            </ul>
+
+            <p className="text-sm font-medium italic text-brand pt-2">
               Thanks for scrolling this far. Truly remarkable commitment.
-            </span>
-          </motion.p>
+            </p>
+          </motion.div>
         </div>
 
         {/* Stats Telemetry Grid */}

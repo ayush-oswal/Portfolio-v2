@@ -49,7 +49,7 @@ const HERO_GALLERY = [
 
 const HeroSection = () => {
   return (
-    <div className="relative flex flex-col gap-10">
+    <div className="relative flex flex-col gap-10 pt-2 md:pt-0">
       {/* Top Blueprint Telemetry Strip */}
       <motion.div
         initial={{ opacity: 0, y: 8 }}

@@ -6,14 +6,15 @@ import { REVEAL_UP } from "@/constants/theme";
 const skillGroups = [
   {
     label: "Languages",
-    skills: ["Javascript", "Typescript", "Python", "Golang", "Java", "C++"],
+    subnote: "(I'm language agnostic btw!)",
+    skills: ["Javascript", "Typescript", "Python", "C++"],
   },
   {
     label: "Frameworks",
-    skills: ["React", "Next.js", "Node.js", "Express.js", "Fast API", "Redux"],
+    skills: ["Node.js", "Express.js", "Fast API"],
   },
   {
-    label: "Databases",
+    label: "Databases & ORMs",
     skills: [
       "PostgreSQL",
       "MongoDB",
@@ -34,13 +35,14 @@ const skillGroups = [
       "AWS",
       "Terraform",
       "Nginx",
-      "EC2 deployments",
       "CI/CD",
-      "Devops",
       "Kafka",
       "n8n",
-      "BullMQ",
     ],
+  },
+  {
+    label: "Message Brokers",
+    skills: ["BullMQ", "AWS SQS", "RabbitMQ"],
   },
   {
     label: "AI & Voice",
@@ -114,11 +116,16 @@ const SkillsSection = () => {
           >
             {/* Category Header */}
             <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-2 w-full">
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 flex-wrap justify-center sm:justify-start">
                 <span className="tech-label text-[#85858D]">
                   [{String(gi + 1).padStart(2, "0")}]
                 </span>
                 <span className="tech-label text-brand">{group.label}</span>
+                {group.subnote && (
+                  <span className="tech-label text-[#85858D] text-[10px] lowercase tracking-normal italic">
+                    {group.subnote}
+                  </span>
+                )}
               </div>
               <span className="tech-label text-[#85858D]">
                 {String(group.skills.length).padStart(2, "0")} ITEMS

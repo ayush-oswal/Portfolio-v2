@@ -14,35 +14,35 @@ export default function Home() {
       <div className="max-w-[1360px] mx-auto lg:grid lg:grid-cols-[260px_1fr] lg:px-8">
         <Sidebar />
 
-        <main className="max-w-3xl mx-auto lg:max-w-none lg:mx-0 px-5 md:px-10 lg:pl-12 lg:pr-4 pt-8 pb-28 lg:py-12">
+        <main className="max-w-3xl mx-auto lg:max-w-none lg:mx-0 px-5 md:px-10 lg:pl-12 lg:pr-4 pt-12 sm:pt-14 pb-28 lg:py-12">
           <BottomBar />
 
           <div className="flex flex-col gap-24">
-            <header id="overview" className="scroll-mt-28 lg:scroll-mt-20">
+            <header id="overview" className="scroll-mt-36 lg:scroll-mt-20">
               <HeroSection />
             </header>
 
-            <section id="about" className="scroll-mt-28 lg:scroll-mt-20">
+            <section id="about" className="scroll-mt-36 lg:scroll-mt-20">
               <AboutSection />
             </section>
 
-            <section id="skills" className="scroll-mt-28 lg:scroll-mt-20">
+            <section id="skills" className="scroll-mt-36 lg:scroll-mt-20">
               <SkillsSection />
             </section>
 
-            <section id="experience" className="scroll-mt-28 lg:scroll-mt-20">
+            <section id="experience" className="scroll-mt-36 lg:scroll-mt-20">
               <ExperienceSection />
             </section>
 
-            <section id="projects" className="scroll-mt-28 lg:scroll-mt-20">
+            <section id="projects" className="scroll-mt-36 lg:scroll-mt-20">
               <ProjectsSection />
             </section>
 
-            <section id="blogs" className="scroll-mt-28 lg:scroll-mt-20">
+            <section id="blogs" className="scroll-mt-36 lg:scroll-mt-20">
               <BlogsSection />
             </section>
 
-            <section id="extras" className="scroll-mt-28 lg:scroll-mt-20">
+            <section id="extras" className="scroll-mt-36 lg:scroll-mt-20">
               <ExtrasSection />
             </section>
 

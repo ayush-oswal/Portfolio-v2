@@ -37,6 +37,7 @@ const SOCIAL_LINKS = [
 
 export default function Sidebar() {
   const [activeId, setActiveId] = useState<string>("overview");
+  const mobileNavRef = useRef<HTMLElement | null>(null);
   const mobileTabRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
 
   useEffect(() => {
@@ -68,11 +69,14 @@ export default function Sidebar() {
 
   useEffect(() => {
     const activeTab = mobileTabRefs.current[activeId];
-    if (activeTab) {
-      activeTab.scrollIntoView({
+    const container = mobileNavRef.current;
+    if (activeTab && container) {
+      const tabLeft = activeTab.offsetLeft;
+      const tabWidth = activeTab.offsetWidth;
+      const containerWidth = container.offsetWidth;
+      container.scrollTo({
+        left: tabLeft - containerWidth / 2 + tabWidth / 2,
         behavior: "smooth",
-        inline: "center",
-        block: "nearest",
       });
     }
   }, [activeId]);
@@ -116,6 +120,7 @@ export default function Sidebar() {
 
         {/* Horizontal Scrollable Section Navbar */}
         <nav
+          ref={mobileNavRef}
           aria-label="Mobile section navigation"
           className="flex items-center overflow-x-auto no-scrollbar border-t border-white/15 divide-x divide-white/15"
         >
